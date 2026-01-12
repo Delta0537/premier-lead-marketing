@@ -1,0 +1,14 @@
+{
+  "name": "premier-lead-marketing",
+  "version": "1.0.0",
+  "description": "Premier Lead Marketing - Strategic Digital Dominance",
+  "scripts": {
+    "start": "npx serve -s . -l $PORT"
+  },
+  "keywords": ["marketing", "lead-generation", "digital-marketing"],
+  "author": "Premier Lead Marketing",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.x"
+  }
+}

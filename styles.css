@@ -1070,6 +1070,13 @@ a:hover {
     margin-top: var(--spacing-sm);
 }
 
+.form-consent {
+    font-size: 0.875rem;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: var(--spacing-sm);
+}
+
 /* === FOOTER === */
 .footer {
     background: var(--bg-primary);

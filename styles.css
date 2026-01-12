@@ -5,40 +5,40 @@
 
 /* === ROOT VARIABLES === */
 :root {
-    /* Primary Colors - Professional Blue (ServiceKit Inspired) */
-    --primary: #3b82f6;
-    --primary-light: #60a5fa;
-    --primary-dark: #2563eb;
-    --secondary: #1e40af;
+    /* Primary Colors - PLM Cyan/Blue Gradient (Matching Logo) */
+    --primary: #00D4FF;
+    --primary-light: #33DDFF;
+    --primary-dark: #0066CC;
+    --secondary: #0099FF;
     
-    /* Accent Colors - Teal/Green for Growth */
-    --accent: #14b8a6;
-    --accent-dark: #0d9488;
+    /* Accent Colors - PLM Branded */
+    --accent: #00BCD4;
+    --accent-dark: #0088AA;
     --success: #10b981;
     --warning: #f59e0b;
     --danger: #ef4444;
     
     /* Neutral Colors - Dark Professional Theme */
-    --bg-primary: #0a0e1a;
-    --bg-secondary: #0f1419;
-    --bg-tertiary: #141922;
-    --bg-card: #1a1f2e;
-    --bg-card-hover: #1f2937;
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #0f0f0f;
+    --bg-tertiary: #141414;
+    --bg-card: #1a1a1a;
+    --bg-card-hover: #1f1f1f;
     
     /* Text Colors */
-    --text-primary: #ffffff;
-    --text-secondary: #e0e7ff;
-    --text-muted: #94a3b8;
-    --text-dim: #64748b;
+    --text-primary: #E8E8E8;
+    --text-secondary: #CCCCCC;
+    --text-muted: #888888;
+    --text-dim: #666666;
     
     /* Border & Divider */
-    --border: #1e293b;
-    --border-light: #334155;
-    --divider: #2d3748;
+    --border: #2a2a2a;
+    --border-light: #333333;
+    --divider: #2d2d2d;
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-    --gradient-infinity: linear-gradient(90deg, #3b82f6 0%, #14b8a6 50%, #2563eb 100%);
+    --gradient-primary: linear-gradient(135deg, #00D4FF 0%, #0066CC 100%);
+    --gradient-infinity: linear-gradient(90deg, #00D4FF 0%, #0099FF 50%, #0066CC 100%);
     --gradient-light: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
     --gradient-overlay: linear-gradient(180deg, rgba(248,250,252,0) 0%, rgba(248,250,252,0.95) 100%);
     
@@ -47,7 +47,7 @@
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-    --shadow-glow: 0 0 30px rgba(59, 130, 246, 0.3);
+    --shadow-glow: 0 0 30px rgba(0, 212, 255, 0.3);
     --shadow-infinity: 0 0 40px rgba(59, 130, 246, 0.4);
     
     /* Spacing */

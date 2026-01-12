@@ -66,6 +66,24 @@ if (mobileMenuToggle && navLinks) {
     });
 }
 
+// ===== GOOGLE ADS CONVERSION TRACKING =====
+function gtag_report_conversion(url) {
+    var callback = function () {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    };
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17868690076/wwUhCOyIk-EbEJylushC',
+            'value': 1.0,
+            'currency': 'USD',
+            'event_callback': callback
+        });
+    }
+    return false;
+}
+
 // ===== FORM SUBMISSION =====
 const contactForm = document.getElementById('contactForm');
 
@@ -94,6 +112,9 @@ if (contactForm) {
             
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
+            
+            // Track Google Ads conversion
+            gtag_report_conversion();
             
             // Success message
             showMessage('success', 'Thank you! We\'ll be in touch within 24 hours.');

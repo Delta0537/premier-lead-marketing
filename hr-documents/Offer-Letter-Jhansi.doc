@@ -1,0 +1,283 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<title>Offer Letter - Jhansi - Systems & Automation Architect</title>
+<style>
+  @page { margin: 1in; }
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.6; }
+  h1 { font-size: 14pt; color: #3b82f6; margin-bottom: 6pt; }
+  p { margin: 8pt 0; }
+  .header { margin-bottom: 30pt; }
+  .logo { font-size: 18pt; font-weight: bold; color: #3b82f6; }
+  .tagline { font-size: 10pt; color: #64748b; letter-spacing: 1px; }
+  .field { background-color: #fef9c3; padding: 2pt 4pt; }
+  .highlight-box { background-color: #eff6ff; border-left: 4px solid #3b82f6; padding: 15pt; margin: 15pt 0; }
+  .signature-line { border-bottom: 1px solid #000; width: 200pt; display: inline-block; margin-top: 20pt; }
+  table { border-collapse: collapse; width: 100%; margin: 10pt 0; }
+  th, td { border: 1px solid #e2e8f0; padding: 8pt; text-align: left; }
+  th { background-color: #3b82f6; color: white; }
+  ul { margin-left: 20pt; }
+  li { margin: 4pt 0; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+<p class="logo">PREMIER LEAD MARKETING</p>
+<p class="tagline">STRATEGIC DIGITAL DOMINANCE</p>
+<p style="font-size: 10pt; color: #64748b;">premierleadmarketing.ai</p>
+</div>
+
+<!-- Date and Address -->
+<p><span class="field">January ___, 2026</span></p>
+
+<p>
+<span class="field">Jhansi [FULL LEGAL NAME]</span><br>
+<span class="field">[ADDRESS LINE 1]</span><br>
+<span class="field">[CITY, STATE ZIP]</span><br>
+<span class="field">[COUNTRY]</span>
+</p>
+
+<p>Dear Jhansi,</p>
+
+<p>On behalf of <strong>Premier Lead Marketing, LLC</strong>, I am thrilled to extend this offer to join our founding team as a <strong>Systems & Automation Architect</strong>. Your skills and experience make you an excellent fit for our mission to deliver strategic digital dominance for our clients.</p>
+
+<p>We believe you will play a pivotal role in building the infrastructure that allows our business to scale efficiently. Welcome to the PLM family!</p>
+
+<h1>POSITION DETAILS</h1>
+
+<table>
+<tr>
+<th width="35%">Item</th>
+<th>Details</th>
+</tr>
+<tr>
+<td><strong>Position Title</strong></td>
+<td>Systems & Automation Architect</td>
+</tr>
+<tr>
+<td><strong>Employee ID</strong></td>
+<td>2026-002 (Founding Team Member)</td>
+</tr>
+<tr>
+<td><strong>Department</strong></td>
+<td>Operations</td>
+</tr>
+<tr>
+<td><strong>Employment Type</strong></td>
+<td>Full-Time Contractor (Founding Team)</td>
+</tr>
+<tr>
+<td><strong>Reports To</strong></td>
+<td>Andrew Knight, Co-Founder & COO</td>
+</tr>
+<tr>
+<td><strong>Start Date</strong></td>
+<td><span class="field">[START DATE]</span></td>
+</tr>
+<tr>
+<td><strong>Work Location</strong></td>
+<td>Remote</td>
+</tr>
+<tr>
+<td><strong>Email Addresses</strong></td>
+<td>jhansi@premierleadmarketing.com<br>ops@premierleadmarketing.com (alias)<br>support@premierleadmarketing.com (alias)</td>
+</tr>
+</table>
+
+<h1>COMPENSATION</h1>
+
+<table>
+<tr>
+<th width="35%">Component</th>
+<th>Details</th>
+</tr>
+<tr>
+<td><strong>Base Compensation</strong></td>
+<td><span class="field">$[AMOUNT] per [hour/month]</span></td>
+</tr>
+<tr>
+<td><strong>Payment Schedule</strong></td>
+<td><span class="field">[Bi-weekly / Monthly]</span></td>
+</tr>
+<tr>
+<td><strong>Payment Method</strong></td>
+<td><span class="field">[Wire Transfer / PayPal / Wise / etc.]</span></td>
+</tr>
+<tr>
+<td><strong>Performance Bonus</strong></td>
+<td><span class="field">[If applicable - describe bonus structure]</span></td>
+</tr>
+</table>
+
+<h1>YOUR MISSION</h1>
+
+<div class="highlight-box">
+<p style="margin: 0; font-size: 12pt; font-style: italic; color: #1e40af;">
+"To architect a seamless, automated infrastructure that allows the business to scale to 100+ clients without increasing manual workload."
+</p>
+</div>
+
+<h1>ROLE & RESPONSIBILITIES</h1>
+
+<p>As the Systems & Automation Architect, you will be responsible for:</p>
+
+<ul>
+<li><strong>Systems Architecture:</strong> Design, build, and maintain the technical infrastructure that powers our marketing operations</li>
+
+<li><strong>Marketing Automation:</strong> Develop and optimize automation workflows in GoHighLevel (GHL) and other platforms to streamline client onboarding, lead nurturing, and campaign management</li>
+
+<li><strong>Integration Management:</strong> Build and maintain integrations between various platforms (CRM, email marketing, advertising platforms, analytics tools)</li>
+
+<li><strong>Process Optimization:</strong> Identify bottlenecks and inefficiencies in current systems and implement solutions to improve operational efficiency</li>
+
+<li><strong>Client Support Infrastructure:</strong> Establish and manage the technical support systems for client inquiries and issues</li>
+
+<li><strong>Documentation:</strong> Create and maintain technical documentation for all systems, processes, and workflows</li>
+
+<li><strong>Security & Compliance:</strong> Ensure all systems meet security best practices and data protection requirements</li>
+
+<li><strong>Scalability Planning:</strong> Build systems with scalability in mind to support business growth</li>
+</ul>
+
+<h1>GROWTH PATH</h1>
+
+<p>We are committed to your professional development. As a founding team member, you have a clear path to leadership:</p>
+
+<table>
+<tr>
+<th>Phase</th>
+<th>Title</th>
+<th>Focus</th>
+</tr>
+<tr>
+<td><strong>Current</strong></td>
+<td>Systems & Automation Architect</td>
+<td>Build the infrastructure foundation</td>
+</tr>
+<tr>
+<td><strong>Phase 2</strong></td>
+<td>Senior Systems Architect</td>
+<td>Lead technical strategy & mentor new hires</td>
+</tr>
+<tr>
+<td><strong>Phase 3</strong></td>
+<td>Director of Operations & Technology</td>
+<td>Oversee all technical operations and team</td>
+</tr>
+</table>
+
+<p>Performance reviews will be conducted quarterly to discuss your progress, achievements, and advancement opportunities.</p>
+
+<h1>TOOLS & ACCESS</h1>
+
+<p>You will be provided access to the following tools and platforms:</p>
+
+<ul>
+<li>Google Workspace (Email, Drive, Calendar, Meet)</li>
+<li>GoHighLevel (GHL) - Marketing Automation Platform</li>
+<li>Google Ads Manager</li>
+<li>Project Management Tools (as assigned)</li>
+<li>Communication Tools (Slack/Discord as applicable)</li>
+<li>Additional tools as needed for your role</li>
+</ul>
+
+<h1>ADMIN ROLES & PRIVILEGES</h1>
+
+<p>As part of your role, you will be assigned the following Google Admin privileges:</p>
+
+<ul>
+<li>User Management Admin</li>
+<li>Services Admin</li>
+<li>Groups Admin</li>
+</ul>
+
+<h1>TERMS & CONDITIONS</h1>
+
+<p><strong>1. Contractor Relationship:</strong> This is a contractor engagement, not an employment relationship. You are responsible for your own taxes, insurance, and benefits as required by your jurisdiction.</p>
+
+<p><strong>2. Confidentiality:</strong> This offer is contingent upon your execution of the enclosed Non-Disclosure Agreement (NDA). All company and client information must be kept strictly confidential.</p>
+
+<p><strong>3. Work Authorization:</strong> This offer is contingent upon your legal ability to work in your jurisdiction and provide services to a US-based company.</p>
+
+<p><strong>4. Equipment:</strong> You are expected to provide your own equipment (computer, internet connection) necessary to perform your duties. The Company may provide specific software licenses or tools as needed.</p>
+
+<p><strong>5. Availability:</strong> Standard working hours will be <span class="field">[SPECIFY - e.g., "flexible with minimum 40 hours/week" or specific hours]</span>. You are expected to be available for team meetings and communications during overlapping business hours.</p>
+
+<p><strong>6. Termination:</strong> Either party may terminate this agreement with <span class="field">[14/30]</span> days written notice. Immediate termination may occur in cases of breach of confidentiality, misconduct, or violation of company policies.</p>
+
+<p><strong>7. Intellectual Property:</strong> All work product created during your engagement is the exclusive property of Premier Lead Marketing, LLC.</p>
+
+<h1>REQUIRED DOCUMENTS</h1>
+
+<p>Please complete and return the following documents by <span class="field">[DATE]</span>:</p>
+
+<ul>
+<li>☐ Signed copy of this Offer Letter</li>
+<li>☐ Signed Non-Disclosure Agreement (NDA)</li>
+<li>☐ W-9 Form (for US contractors) or W-8BEN (for international contractors)</li>
+<li>☐ Copy of Government-issued ID</li>
+<li>☐ Payment information form</li>
+</ul>
+
+<h1>ACCEPTANCE</h1>
+
+<p>To accept this offer, please sign below and return this letter along with the signed NDA by <span class="field">[ACCEPTANCE DEADLINE DATE]</span>.</p>
+
+<p>If you have any questions about this offer, please don't hesitate to reach out. We're excited about the possibility of you joining our team and helping us build something remarkable.</p>
+
+<p>Welcome aboard!</p>
+
+<br>
+<p>Warm regards,</p>
+
+<br><br>
+<p class="signature-line"></p>
+<p><strong>Andrew Knight</strong><br>
+Co-Founder & Chief Operating Officer<br>
+Premier Lead Marketing, LLC<br>
+andrew@premierleadmarketing.com</p>
+
+<hr style="margin-top: 40pt; border: none; border-top: 2px solid #3b82f6;">
+
+<h1>OFFER ACCEPTANCE</h1>
+
+<p>I, <span class="field">Jhansi [FULL LEGAL NAME]</span>, hereby accept the offer of engagement as Systems & Automation Architect with Premier Lead Marketing, LLC under the terms and conditions outlined in this letter.</p>
+
+<p>I understand that this offer is contingent upon my signing of the Non-Disclosure Agreement and other required documents.</p>
+
+<br><br>
+
+<table width="100%" cellpadding="0" cellspacing="0" style="border: none;">
+<tr>
+<td width="50%" style="border: none;">
+<p class="signature-line"></p>
+<p>Signature</p>
+</td>
+<td width="50%" style="border: none;">
+<p class="signature-line"></p>
+<p>Date</p>
+</td>
+</tr>
+<tr>
+<td style="border: none;">
+<br>
+<p class="signature-line"></p>
+<p>Print Full Legal Name</p>
+</td>
+<td style="border: none;">
+</td>
+</tr>
+</table>
+
+<br><br>
+<p style="text-align: center; font-size: 9pt; color: #64748b; margin-top: 30pt; border-top: 1px solid #e2e8f0; padding-top: 10pt;">
+Premier Lead Marketing, LLC | premierleadmarketing.ai | Confidential Document<br>
+This offer letter is valid until <span class="field">[EXPIRATION DATE]</span>
+</p>
+
+</body>
+</html>

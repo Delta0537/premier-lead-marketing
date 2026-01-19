@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 50" width="400" height="50">
+  <defs>
+    <linearGradient id="infinityGradientHoriz" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- Infinity Symbol -->
+  <g transform="translate(5, 10)">
+    <path d="M 15 15 Q 22 2, 30 15 Q 38 28, 45 15 Q 38 2, 30 15 Q 22 28, 15 15 Z"
+          fill="none"
+          stroke="url(#infinityGradientHoriz)"
+          stroke-width="4"
+          stroke-linecap="round"/>
+  </g>
+  <!-- PLM Text -->
+  <text x="60" y="32" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#3b82f6">PLM</text>
+  <!-- Separator -->
+  <line x1="115" y1="12" x2="115" y2="38" stroke="#e2e8f0" stroke-width="1"/>
+  <!-- Full Name -->
+  <text x="125" y="32" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="500" fill="#334155">Premier Lead Marketing</text>
+</svg>

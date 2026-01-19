@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" width="300" height="80">
+  <defs>
+    <linearGradient id="infinityGradientDark" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#60a5fa"/>
+      <stop offset="50%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#3b82f6"/>
+    </linearGradient>
+  </defs>
+  <!-- Infinity Symbol -->
+  <g transform="translate(10, 15)">
+    <path d="M 25 25 Q 35 5, 50 25 Q 65 45, 75 25 Q 65 5, 50 25 Q 35 45, 25 25 Z"
+          fill="none"
+          stroke="url(#infinityGradientDark)"
+          stroke-width="5"
+          stroke-linecap="round"/>
+  </g>
+  <!-- PLM Text -->
+  <text x="100" y="45" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="700" fill="#ffffff">PLM</text>
+  <!-- Tagline -->
+  <text x="100" y="62" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" fill="#e0e7ff" letter-spacing="1">STRATEGIC DIGITAL DOMINANCE</text>
+</svg>

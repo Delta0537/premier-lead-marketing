@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 120" width="150" height="120">
+  <defs>
+    <linearGradient id="infinityGradientStacked" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+  <!-- Infinity Symbol Centered -->
+  <g transform="translate(25, 5)">
+    <path d="M 25 25 Q 35 5, 50 25 Q 65 45, 75 25 Q 65 5, 50 25 Q 35 45, 25 25 Z"
+          fill="none"
+          stroke="url(#infinityGradientStacked)"
+          stroke-width="5"
+          stroke-linecap="round"/>
+  </g>
+  <!-- PLM Text -->
+  <text x="75" y="75" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#3b82f6">PLM</text>
+  <!-- Full Name -->
+  <text x="75" y="95" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="500" fill="#64748b">PREMIER LEAD MARKETING</text>
+  <!-- Tagline -->
+  <text x="75" y="110" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="7" font-weight="400" fill="#94a3b8" letter-spacing="0.5">Strategic Digital Dominance</text>
+</svg>

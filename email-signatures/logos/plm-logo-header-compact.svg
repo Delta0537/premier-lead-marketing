@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 40" width="280" height="40">
+  <defs>
+    <linearGradient id="infinityGradCompact" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Infinity Symbol -->
+  <g transform="translate(2, 5)">
+    <path d="M 8 15 Q 14 4, 24 15 Q 34 26, 42 15 Q 34 4, 24 15 Q 14 26, 8 15 Z"
+          fill="none"
+          stroke="url(#infinityGradCompact)"
+          stroke-width="3"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- PLM Text -->
+  <text x="52" y="28" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="22" font-weight="900" fill="#3b82f6">PLM</text>
+
+  <!-- Divider -->
+  <line x1="100" y1="10" x2="100" y2="30" stroke="#14b8a6" stroke-width="2"/>
+
+  <!-- Company Name -->
+  <text x="112" y="26" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="600" fill="#1e293b">PREMIER LEAD MARKETING</text>
+</svg>

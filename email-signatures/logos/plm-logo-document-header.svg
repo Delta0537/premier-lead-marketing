@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 60" width="400" height="60">
+  <defs>
+    <linearGradient id="infinityGradHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="50%" style="stop-color:#14b8a6"/>
+      <stop offset="100%" style="stop-color:#2563eb"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Infinity Symbol -->
+  <g transform="translate(5, 10)">
+    <path d="M 10 20 Q 18 5, 30 20 Q 42 35, 50 20 Q 42 5, 30 20 Q 18 35, 10 20 Z"
+          fill="none"
+          stroke="url(#infinityGradHeader)"
+          stroke-width="4"
+          stroke-linecap="round"/>
+  </g>
+
+  <!-- PLM Text -->
+  <text x="70" y="38" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="28" font-weight="900" fill="#3b82f6">PLM</text>
+
+  <!-- Divider Line -->
+  <line x1="130" y1="15" x2="130" y2="45" stroke="#14b8a6" stroke-width="2"/>
+
+  <!-- Full Company Name -->
+  <text x="145" y="32" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="#1e293b">PREMIER LEAD MARKETING</text>
+
+  <!-- Tagline -->
+  <text x="145" y="48" font-family="Arial, Helvetica, sans-serif" font-size="9" font-weight="400" fill="#64748b" letter-spacing="0.5">Strategic Digital Dominance</text>
+</svg>

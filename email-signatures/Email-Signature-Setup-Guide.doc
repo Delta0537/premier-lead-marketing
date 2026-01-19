@@ -1,0 +1,469 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<meta name="Originator" content="Microsoft Word 15">
+<title>Premier Lead Marketing - Email Signature Setup Guide</title>
+<style>
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; line-height: 1.5; margin: 1in; }
+  h1 { font-size: 24pt; color: #3b82f6; border-bottom: 3px solid #14b8a6; padding-bottom: 10px; }
+  h2 { font-size: 16pt; color: #2563eb; margin-top: 24pt; }
+  h3 { font-size: 13pt; color: #1e40af; margin-top: 18pt; }
+  p { margin: 6pt 0; }
+  ul, ol { margin: 6pt 0 6pt 24pt; }
+  li { margin: 4pt 0; }
+  table { border-collapse: collapse; width: 100%; margin: 12pt 0; }
+  th, td { border: 1px solid #94a3b8; padding: 8pt; text-align: left; }
+  th { background-color: #3b82f6; color: white; }
+  .highlight { background-color: #e0e7ff; padding: 12pt; border-left: 4px solid #3b82f6; margin: 12pt 0; }
+  .warning { background-color: #fef3c7; padding: 12pt; border-left: 4px solid #f59e0b; margin: 12pt 0; }
+  .step-box { background-color: #f1f5f9; padding: 12pt; border-radius: 4px; margin: 12pt 0; }
+  code { font-family: Consolas, monospace; background-color: #f1f5f9; padding: 2pt 4pt; }
+  .brand-color { display: inline-block; width: 20pt; height: 20pt; vertical-align: middle; margin-right: 8pt; border: 1px solid #ccc; }
+</style>
+</head>
+<body>
+
+<h1>Premier Lead Marketing<br>Email Signature Setup Guide</h1>
+
+<p><strong>Company:</strong> Premier Lead Marketing, LLC<br>
+<strong>Website:</strong> premierleadmarketing.ai<br>
+<strong>Tagline:</strong> Strategic Digital Dominance</p>
+
+<hr>
+
+<h2>Table of Contents</h2>
+<ol>
+  <li>File Locations</li>
+  <li>Brand Colors Reference</li>
+  <li>Gmail Setup Instructions</li>
+  <li>Outlook Setup Instructions</li>
+  <li>Apple Mail Setup Instructions</li>
+  <li>Canva Design Instructions</li>
+  <li>Template Customization</li>
+  <li>Troubleshooting</li>
+</ol>
+
+<hr>
+
+<h2>1. File Locations</h2>
+
+<p>All email signature files are located at:</p>
+
+<div class="highlight">
+<strong>Full Path:</strong><br>
+<code>/home/user/premier-lead-marketing/email-signatures/</code>
+</div>
+
+<h3>Folder Structure</h3>
+<table>
+  <tr>
+    <th>File/Folder</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td><code>signature-professional.html</code></td>
+    <td>Standard business signature with logo and CTA button</td>
+  </tr>
+  <tr>
+    <td><code>signature-executive.html</code></td>
+    <td>Minimal, elegant design for executives</td>
+  </tr>
+  <tr>
+    <td><code>signature-full-featured.html</code></td>
+    <td>Complete signature with photo, social icons, and stats</td>
+  </tr>
+  <tr>
+    <td><code>signature-compact.html</code></td>
+    <td>Mobile-friendly single-line version</td>
+  </tr>
+  <tr>
+    <td><code>signature-dark-theme.html</code></td>
+    <td>Dark background variant for dark mode users</td>
+  </tr>
+  <tr>
+    <td><code>logos/</code></td>
+    <td>Folder containing all logo SVG files</td>
+  </tr>
+  <tr>
+    <td><code>icons/</code></td>
+    <td>Folder containing social media icon SVG files</td>
+  </tr>
+</table>
+
+<h3>Logo Files</h3>
+<table>
+  <tr>
+    <th>File</th>
+    <th>Use Case</th>
+  </tr>
+  <tr>
+    <td><code>logos/plm-logo-full-color.svg</code></td>
+    <td>Main logo for light/white backgrounds</td>
+  </tr>
+  <tr>
+    <td><code>logos/plm-logo-dark-bg.svg</code></td>
+    <td>Logo optimized for dark backgrounds</td>
+  </tr>
+  <tr>
+    <td><code>logos/plm-icon-only.svg</code></td>
+    <td>Infinity symbol icon only (compact)</td>
+  </tr>
+  <tr>
+    <td><code>logos/plm-logo-horizontal.svg</code></td>
+    <td>Wide horizontal banner layout</td>
+  </tr>
+  <tr>
+    <td><code>logos/plm-logo-stacked.svg</code></td>
+    <td>Vertical stacked layout</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>2. Brand Colors Reference</h2>
+
+<table>
+  <tr>
+    <th>Color Name</th>
+    <th>Hex Code</th>
+    <th>RGB</th>
+    <th>Usage</th>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#3b82f6;"></span>Primary Blue</td>
+    <td><code>#3b82f6</code></td>
+    <td>59, 130, 246</td>
+    <td>Main brand color, links, buttons</td>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#60a5fa;"></span>Primary Light</td>
+    <td><code>#60a5fa</code></td>
+    <td>96, 165, 250</td>
+    <td>Hover states, job titles</td>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#14b8a6;"></span>Teal Accent</td>
+    <td><code>#14b8a6</code></td>
+    <td>20, 184, 166</td>
+    <td>Secondary accent, gradients</td>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#2563eb;"></span>Dark Blue</td>
+    <td><code>#2563eb</code></td>
+    <td>37, 99, 235</td>
+    <td>Buttons, emphasis</td>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#1e293b;"></span>Dark Text</td>
+    <td><code>#1e293b</code></td>
+    <td>30, 41, 59</td>
+    <td>Names, headings</td>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#64748b;"></span>Medium Text</td>
+    <td><code>#64748b</code></td>
+    <td>100, 116, 139</td>
+    <td>Contact info, secondary text</td>
+  </tr>
+  <tr>
+    <td><span class="brand-color" style="background-color:#94a3b8;"></span>Muted Text</td>
+    <td><code>#94a3b8</code></td>
+    <td>148, 163, 184</td>
+    <td>Taglines, captions</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>3. Gmail Setup Instructions</h2>
+
+<div class="step-box">
+<h3>Step 1: Open Gmail Settings</h3>
+<ol>
+  <li>Open Gmail in your web browser</li>
+  <li>Click the <strong>gear icon</strong> (⚙️) in the top right</li>
+  <li>Click <strong>"See all settings"</strong></li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>Step 2: Navigate to Signature Section</h3>
+<ol>
+  <li>Stay on the <strong>"General"</strong> tab</li>
+  <li>Scroll down to find <strong>"Signature"</strong> section</li>
+  <li>Click <strong>"+ Create new"</strong></li>
+  <li>Name your signature (e.g., "PLM Professional")</li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>Step 3: Add Your Signature</h3>
+<ol>
+  <li>Open the HTML signature file in a web browser</li>
+  <li>Select all content (Ctrl+A or Cmd+A)</li>
+  <li>Copy (Ctrl+C or Cmd+C)</li>
+  <li>Paste into Gmail signature editor (Ctrl+V or Cmd+V)</li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>Step 4: Set as Default</h3>
+<ol>
+  <li>Under "Signature defaults" choose your new signature</li>
+  <li>Set for both "New emails" and "On reply/forward"</li>
+  <li>Scroll to bottom and click <strong>"Save Changes"</strong></li>
+</ol>
+</div>
+
+<div class="warning">
+<strong>Note:</strong> Gmail may strip some formatting. For best results, use the image-based signature created in Canva.
+</div>
+
+<hr>
+
+<h2>4. Outlook Setup Instructions</h2>
+
+<h3>Outlook Desktop (Windows)</h3>
+
+<div class="step-box">
+<ol>
+  <li>Open Outlook</li>
+  <li>Click <strong>File</strong> → <strong>Options</strong></li>
+  <li>Click <strong>Mail</strong> in the left sidebar</li>
+  <li>Click the <strong>"Signatures..."</strong> button</li>
+  <li>Click <strong>"New"</strong> to create a new signature</li>
+  <li>Name it "PLM Signature"</li>
+  <li>Open the HTML file in a browser, copy the content</li>
+  <li>Paste into the signature editor</li>
+  <li>Click <strong>OK</strong> to save</li>
+</ol>
+</div>
+
+<h3>Outlook Web (Office 365)</h3>
+
+<div class="step-box">
+<ol>
+  <li>Click the <strong>gear icon</strong> (⚙️) in the top right</li>
+  <li>Click <strong>"View all Outlook settings"</strong></li>
+  <li>Go to <strong>Mail</strong> → <strong>Compose and reply</strong></li>
+  <li>Under "Email signature", paste your signature content</li>
+  <li>Check "Automatically include my signature on new messages"</li>
+  <li>Click <strong>"Save"</strong></li>
+</ol>
+</div>
+
+<hr>
+
+<h2>5. Apple Mail Setup Instructions</h2>
+
+<div class="step-box">
+<h3>macOS</h3>
+<ol>
+  <li>Open <strong>Mail</strong> app</li>
+  <li>Click <strong>Mail</strong> → <strong>Preferences</strong> (or Cmd+,)</li>
+  <li>Click the <strong>"Signatures"</strong> tab</li>
+  <li>Select your email account on the left</li>
+  <li>Click the <strong>"+"</strong> button to add new signature</li>
+  <li>Name it "PLM Signature"</li>
+  <li>Uncheck "Always match my default message font"</li>
+  <li>Open HTML file in Safari, copy content, paste into signature box</li>
+  <li>Close preferences to save</li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>iOS (iPhone/iPad)</h3>
+<ol>
+  <li>Open <strong>Settings</strong></li>
+  <li>Scroll down and tap <strong>Mail</strong></li>
+  <li>Tap <strong>Signature</strong></li>
+  <li>Enter your signature text (HTML not fully supported)</li>
+  <li>For best results on iOS, use a simple text version or image</li>
+</ol>
+</div>
+
+<hr>
+
+<h2>6. Canva Design Instructions</h2>
+
+<h3>Creating a Professional Email Signature in Canva</h3>
+
+<div class="step-box">
+<h3>Step 1: Create New Design</h3>
+<ol>
+  <li>Go to <strong>canva.com</strong> and log in</li>
+  <li>Click <strong>"Create a design"</strong></li>
+  <li>Click <strong>"Custom size"</strong></li>
+  <li>Enter dimensions: <strong>600 x 200 pixels</strong></li>
+  <li>Click <strong>"Create new design"</strong></li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>Step 2: Upload Brand Assets</h3>
+<ol>
+  <li>Click <strong>"Uploads"</strong> in left sidebar</li>
+  <li>Click <strong>"Upload files"</strong></li>
+  <li>Navigate to: <code>/home/user/premier-lead-marketing/email-signatures/logos/</code></li>
+  <li>Upload <strong>plm-logo-stacked.svg</strong></li>
+  <li>Also upload any icons needed from <code>/icons/</code> folder</li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>Step 3: Design Layout</h3>
+<ol>
+  <li>Drag your uploaded logo to the left side</li>
+  <li>Add a vertical line (Elements → Lines) - color: #3b82f6, 3px width</li>
+  <li>Add text elements on the right:</li>
+</ol>
+
+<p><strong>Text Elements to Add:</strong></p>
+<ul>
+  <li><strong>Name:</strong> Inter Bold, 18pt, color #1e293b</li>
+  <li><strong>Title:</strong> Inter Medium, 13pt, color #3b82f6</li>
+  <li><strong>Email:</strong> Inter Regular, 12pt, color #64748b</li>
+  <li><strong>Website:</strong> Inter Regular, 12pt, color #60a5fa</li>
+</ul>
+</div>
+
+<div class="step-box">
+<h3>Step 4: Add CTA Button (Optional)</h3>
+<ol>
+  <li>Add a rectangle shape (Elements → Shapes)</li>
+  <li>Set corner radius to 6px</li>
+  <li>Set fill color to #3b82f6</li>
+  <li>Add text: "Book Your Free Marketing Audit"</li>
+  <li>Text: white (#ffffff), 12pt, bold</li>
+</ol>
+</div>
+
+<div class="step-box">
+<h3>Step 5: Export</h3>
+<ol>
+  <li>Click <strong>"Share"</strong> button (top right)</li>
+  <li>Click <strong>"Download"</strong></li>
+  <li>Select <strong>PNG</strong> format</li>
+  <li>Click <strong>"Download"</strong></li>
+</ol>
+</div>
+
+<hr>
+
+<h2>7. Template Customization</h2>
+
+<p>To customize the templates for different team members, replace these values:</p>
+
+<table>
+  <tr>
+    <th>Find This</th>
+    <th>Replace With</th>
+  </tr>
+  <tr>
+    <td><code>Andrew Knight</code></td>
+    <td>Team member's full name</td>
+  </tr>
+  <tr>
+    <td><code>Co-Founder &amp; COO</code></td>
+    <td>Team member's job title</td>
+  </tr>
+  <tr>
+    <td><code>andrew@premierleadmarketing.com</code></td>
+    <td>Team member's email address</td>
+  </tr>
+  <tr>
+    <td><code>andrew-knight.jpg</code></td>
+    <td>Team member's photo URL (for full-featured template)</td>
+  </tr>
+</table>
+
+<h3>Sample Team Titles</h3>
+<ul>
+  <li>Co-Founder &amp; COO</li>
+  <li>Co-Founder &amp; CEO</li>
+  <li>Marketing Director</li>
+  <li>Account Manager</li>
+  <li>Lead Generation Specialist</li>
+  <li>Client Success Manager</li>
+</ul>
+
+<hr>
+
+<h2>8. Troubleshooting</h2>
+
+<h3>Images Not Showing</h3>
+<div class="warning">
+<p><strong>Problem:</strong> Logo or images appear as broken links.</p>
+<p><strong>Solution:</strong> Images must be hosted online. Upload the logo files to your website at <code>premierleadmarketing.ai/email-signatures/logos/</code> and update the image URLs in the HTML templates.</p>
+</div>
+
+<h3>Formatting Looks Wrong</h3>
+<div class="warning">
+<p><strong>Problem:</strong> Signature looks different than expected.</p>
+<p><strong>Solution:</strong> Different email clients render HTML differently. For consistent results, export your signature as a single PNG image from Canva and insert that image instead.</p>
+</div>
+
+<h3>Signature Too Large</h3>
+<div class="warning">
+<p><strong>Problem:</strong> Signature takes up too much space in emails.</p>
+<p><strong>Solution:</strong> Use the <code>signature-compact.html</code> template or reduce the logo size in Canva to 80-100px width.</p>
+</div>
+
+<hr>
+
+<h2>Quick Reference Card</h2>
+
+<table>
+  <tr>
+    <th>Item</th>
+    <th>Value</th>
+  </tr>
+  <tr>
+    <td>Company Name</td>
+    <td>Premier Lead Marketing, LLC</td>
+  </tr>
+  <tr>
+    <td>Website</td>
+    <td>premierleadmarketing.ai</td>
+  </tr>
+  <tr>
+    <td>Primary Email</td>
+    <td>andrew@premierleadmarketing.com</td>
+  </tr>
+  <tr>
+    <td>Tagline</td>
+    <td>Strategic Digital Dominance</td>
+  </tr>
+  <tr>
+    <td>Primary Brand Color</td>
+    <td>#3b82f6</td>
+  </tr>
+  <tr>
+    <td>Accent Color</td>
+    <td>#14b8a6</td>
+  </tr>
+  <tr>
+    <td>Font</td>
+    <td>Inter (Google Fonts)</td>
+  </tr>
+  <tr>
+    <td>CTA Text</td>
+    <td>Book Your Free Marketing Audit</td>
+  </tr>
+  <tr>
+    <td>CTA Link</td>
+    <td>https://premierleadmarketing.ai/book-audit.html</td>
+  </tr>
+</table>
+
+<hr>
+
+<p style="text-align: center; color: #94a3b8; font-size: 10pt; margin-top: 36pt;">
+Premier Lead Marketing, LLC | premierleadmarketing.ai<br>
+Strategic Digital Dominance
+</p>
+
+</body>
+</html>

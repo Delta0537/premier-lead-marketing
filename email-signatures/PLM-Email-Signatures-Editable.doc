@@ -1,0 +1,225 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+<meta charset="UTF-8">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 15">
+<title>PLM Email Signatures - Editable Templates</title>
+<style>
+  @page { margin: 0.75in; }
+  body { font-family: Calibri, Arial, sans-serif; font-size: 11pt; }
+  h1 { font-size: 20pt; color: #3b82f6; page-break-before: auto; }
+  h2 { font-size: 14pt; color: #2563eb; margin-top: 20pt; border-bottom: 1px solid #e2e8f0; padding-bottom: 5pt; }
+  .signature-box { border: 1px solid #e2e8f0; padding: 20pt; margin: 15pt 0; background-color: #f8fafc; }
+  .instructions { background-color: #eff6ff; padding: 10pt; border-left: 3px solid #3b82f6; margin: 10pt 0; font-size: 10pt; }
+  .editable { background-color: #fef9c3; }
+  .sig-name { font-size: 16pt; font-weight: bold; color: #1e293b; margin: 0; }
+  .sig-title { font-size: 11pt; font-weight: 500; color: #3b82f6; margin: 3pt 0; }
+  .sig-contact { font-size: 10pt; color: #64748b; margin: 2pt 0; }
+  .sig-website { font-size: 10pt; color: #3b82f6; margin: 2pt 0; }
+  .sig-tagline { font-size: 9pt; color: #94a3b8; font-style: italic; margin-top: 8pt; }
+  .sig-divider { border-left: 2px solid #3b82f6; padding-left: 12pt; margin-left: 10pt; }
+  .cta-button { background-color: #3b82f6; color: white; padding: 8pt 16pt; text-decoration: none; font-size: 10pt; font-weight: bold; display: inline-block; margin-top: 10pt; }
+  table.sig-table { border: none; }
+  table.sig-table td { border: none; vertical-align: top; padding: 5pt; }
+  .pagebreak { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<h1>Premier Lead Marketing<br>Email Signature Templates</h1>
+
+<p><strong>Instructions:</strong> Select and copy any signature below directly into your email client. Edit the highlighted yellow fields with your information.</p>
+
+<div class="instructions">
+<strong>How to Use:</strong><br>
+1. Choose a signature style below<br>
+2. Select the entire signature box content (Ctrl+A while clicked inside the box)<br>
+3. Copy (Ctrl+C)<br>
+4. Paste into your email signature settings (Gmail, Outlook, etc.)<br>
+5. Edit your name, title, email, and phone number as needed
+</div>
+
+<hr>
+
+<!-- SIGNATURE 1: PROFESSIONAL -->
+<h2>Signature 1: Professional (Recommended)</h2>
+
+<div class="signature-box">
+<table class="sig-table" cellpadding="0" cellspacing="0" width="450">
+<tr>
+<td width="100" style="text-align: center; padding-right: 15pt;">
+<!-- Logo placeholder - insert image here -->
+<div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6, #14b8a6); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 24pt; font-weight: bold;">PLM</span>
+</div>
+</td>
+<td class="sig-divider">
+<p class="sig-name"><span class="editable">Andrew Knight</span></p>
+<p class="sig-title"><span class="editable">Co-Founder & COO</span></p>
+<p class="sig-contact"><span class="editable">andrew@premierleadmarketing.com</span></p>
+<p class="sig-contact"><span class="editable">(555) 123-4567</span></p>
+<p class="sig-website">premierleadmarketing.ai</p>
+<p class="sig-tagline">Strategic Digital Dominance</p>
+</td>
+</tr>
+</table>
+</div>
+
+<hr>
+
+<!-- SIGNATURE 2: WITH CTA BUTTON -->
+<h2>Signature 2: With Call-to-Action Button</h2>
+
+<div class="signature-box">
+<table class="sig-table" cellpadding="0" cellspacing="0" width="500">
+<tr>
+<td width="100" style="text-align: center; padding-right: 15pt;">
+<div style="width: 80px; height: 80px; background: linear-gradient(135deg, #3b82f6, #14b8a6); border-radius: 8px; display: flex; align-items: center; justify-content: center;">
+<span style="color: white; font-size: 24pt; font-weight: bold;">PLM</span>
+</div>
+</td>
+<td class="sig-divider">
+<p class="sig-name"><span class="editable">Andrew Knight</span></p>
+<p class="sig-title"><span class="editable">Co-Founder & COO</span></p>
+<p class="sig-contact"><span class="editable">andrew@premierleadmarketing.com</span> | <span class="editable">(555) 123-4567</span></p>
+<p class="sig-website">premierleadmarketing.ai</p>
+<a href="https://premierleadmarketing.ai/book-audit.html" class="cta-button">Book Your Free Marketing Audit</a>
+</td>
+</tr>
+</table>
+</div>
+
+<hr>
+
+<!-- SIGNATURE 3: COMPACT -->
+<h2>Signature 3: Compact / Minimal</h2>
+
+<div class="signature-box">
+<p style="margin: 0; font-size: 11pt;">
+<strong style="color: #1e293b;"><span class="editable">Andrew Knight</span></strong> | <span style="color: #3b82f6;"><span class="editable">Co-Founder & COO</span></span><br>
+<span style="color: #64748b;">Premier Lead Marketing</span> | <a href="https://premierleadmarketing.ai" style="color: #3b82f6; text-decoration: none;">premierleadmarketing.ai</a><br>
+<span style="color: #64748b;"><span class="editable">andrew@premierleadmarketing.com</span></span> | <span style="color: #64748b;"><span class="editable">(555) 123-4567</span></span>
+</p>
+</div>
+
+<hr>
+
+<!-- SIGNATURE 4: EXECUTIVE -->
+<h2>Signature 4: Executive / Elegant</h2>
+
+<div class="signature-box">
+<table class="sig-table" cellpadding="0" cellspacing="0" width="400">
+<tr>
+<td style="border-bottom: 2px solid #3b82f6; padding-bottom: 10pt;">
+<p style="margin: 0; font-size: 18pt; font-weight: 300; color: #1e293b; letter-spacing: 1px;"><span class="editable">Andrew Knight</span></p>
+<p style="margin: 5pt 0 0 0; font-size: 10pt; color: #3b82f6; text-transform: uppercase; letter-spacing: 2px;"><span class="editable">Co-Founder & Chief Operating Officer</span></p>
+</td>
+</tr>
+<tr>
+<td style="padding-top: 10pt;">
+<p style="margin: 0; font-size: 10pt; color: #64748b;">
+<strong style="color: #1e293b;">Premier Lead Marketing</strong><br>
+<span class="editable">andrew@premierleadmarketing.com</span><br>
+premierleadmarketing.ai
+</p>
+</td>
+</tr>
+</table>
+</div>
+
+<hr>
+
+<!-- SIGNATURE 5: FULL FEATURED WITH STATS -->
+<h2>Signature 5: Full Featured (External/Sales)</h2>
+
+<div class="signature-box">
+<table class="sig-table" cellpadding="0" cellspacing="0" width="550">
+<tr>
+<td width="100" style="text-align: center; padding-right: 15pt;">
+<!-- Photo placeholder -->
+<div style="width: 90px; height: 90px; background-color: #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #64748b; font-size: 9pt;">
+[Your Photo]
+</div>
+</td>
+<td class="sig-divider">
+<p class="sig-name"><span class="editable">Andrew Knight</span></p>
+<p class="sig-title"><span class="editable">Co-Founder & COO</span></p>
+<p class="sig-contact"><span class="editable">andrew@premierleadmarketing.com</span></p>
+<p class="sig-contact"><span class="editable">(555) 123-4567</span></p>
+<p class="sig-website">premierleadmarketing.ai</p>
+</td>
+<td style="padding-left: 15pt; border-left: 1px solid #e2e8f0;">
+<p style="margin: 0 0 5pt 0; font-size: 9pt; color: #64748b;">Our Results:</p>
+<p style="margin: 0; font-size: 10pt; color: #1e293b;"><strong style="color: #3b82f6;">10,000+</strong> Leads Generated</p>
+<p style="margin: 0; font-size: 10pt; color: #1e293b;"><strong style="color: #14b8a6;">300%</strong> Avg ROI Increase</p>
+<a href="https://premierleadmarketing.ai/book-audit.html" class="cta-button" style="margin-top: 8pt; font-size: 9pt; padding: 6pt 12pt;">Free Audit</a>
+</td>
+</tr>
+</table>
+</div>
+
+<div class="pagebreak"></div>
+
+<!-- TEXT-ONLY VERSIONS -->
+<h1>Plain Text Versions</h1>
+<p>For email clients that don't support HTML formatting:</p>
+
+<h2>Text Signature 1: Standard</h2>
+<div class="signature-box" style="font-family: Consolas, monospace; font-size: 10pt; white-space: pre-wrap;">
+<span class="editable">Andrew Knight</span>
+<span class="editable">Co-Founder & COO</span>
+Premier Lead Marketing
+
+<span class="editable">andrew@premierleadmarketing.com</span>
+<span class="editable">(555) 123-4567</span>
+premierleadmarketing.ai
+
+Strategic Digital Dominance
+</div>
+
+<h2>Text Signature 2: One-Liner</h2>
+<div class="signature-box" style="font-family: Consolas, monospace; font-size: 10pt;">
+<span class="editable">Andrew Knight</span> | <span class="editable">Co-Founder & COO</span> | Premier Lead Marketing | premierleadmarketing.ai | <span class="editable">(555) 123-4567</span>
+</div>
+
+<hr>
+
+<h1>Customization Fields</h1>
+<p>Replace these values with your information:</p>
+
+<table border="1" cellpadding="8" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+<tr style="background-color: #3b82f6; color: white;">
+<th>Field</th>
+<th>Current Value</th>
+<th>Your Value</th>
+</tr>
+<tr>
+<td>Full Name</td>
+<td>Andrew Knight</td>
+<td style="background-color: #fef9c3;"></td>
+</tr>
+<tr>
+<td>Job Title</td>
+<td>Co-Founder & COO</td>
+<td style="background-color: #fef9c3;"></td>
+</tr>
+<tr>
+<td>Email</td>
+<td>andrew@premierleadmarketing.com</td>
+<td style="background-color: #fef9c3;"></td>
+</tr>
+<tr>
+<td>Phone</td>
+<td>(555) 123-4567</td>
+<td style="background-color: #fef9c3;"></td>
+</tr>
+</table>
+
+<hr>
+
+<p style="text-align: center; color: #94a3b8; font-size: 9pt; margin-top: 30pt;">
+Premier Lead Marketing, LLC | premierleadmarketing.ai | Strategic Digital Dominance
+</p>
+
+</body>
+</html>

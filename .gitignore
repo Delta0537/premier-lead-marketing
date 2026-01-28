@@ -1,0 +1,112 @@
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+*.env
+config.json
+secrets.json
+credentials.json
+
+# API Keys & Tokens
+*_api_key.txt
+*_token.txt
+api_keys/
+tokens/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+*.egg-info/
+
+# Logs & Temp Files
+logs/
+*.log
+tmp/
+temp/
+*.tmp
+~$*
+
+# Office Temp Files
+~$*.docx
+~$*.xlsx
+~$*.pptx
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.cursor/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Personal/Sensitive
+Resumes/
+Personal/
+*_personal.*
+bitwarden_export_*.json
+nul
+
+# Database Files
+*.db
+*.sqlite
+*.sqlite3
+usage.db
+learning.db
+
+# Backups
+backups/
+backup_*.json
+*.backup
+
+# Build/Compiled
+dist/
+build/
+
+# GHL Specific (keep local but don't commit)
+GHL_Forms/embed_codes.txt
+ghl_*.png
+ghl_*.html
+ghl_error_*.png
+ghl_login_*.png
+ghl_login_page.html
+
+# Sensitive Data Patterns
+*password*
+*secret*
+*confidential*
+*private*
+*credential*
+
+# Client Files - PRIVATE (Do NOT commit to GitHub)
+Business_Operations/PLM_Core/Clients/**/*
+!Business_Operations/PLM_Core/Clients/README.md
+
+# MCP Router Sensitive
+MCP_Router/config.json
+MCP_Router/usage.db
+MCP_Router/backups/
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Test files
+test_*.py
+*_test.py
+*.test.*
+*.mp4
+*.mov
+*.avi

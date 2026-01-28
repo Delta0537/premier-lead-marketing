@@ -202,7 +202,7 @@ fbq('track', 'PageView');
 
 ## 📞 Support
 
-Created by: **Andrew Knight**  
+Created by: **Andrew Ezell, CEO**  
 Company: **Premier Lead Marketing, LLC**  
 Theme: **Strategic Digital Dominance**
 

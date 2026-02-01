@@ -1,0 +1,230 @@
+{
+  "name": "GHL Lead to Supabase Sync",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "ghl-lead-webhook",
+        "responseMode": "responseNode",
+        "options": {
+          "noResponseBody": false
+        }
+      },
+      "id": "webhook-trigger",
+      "name": "GHL Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ],
+      "webhookId": "ghl-lead-capture"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.type }}",
+              "operation": "equal",
+              "value2": "ContactCreate"
+            }
+          ]
+        }
+      },
+      "id": "filter-contact-create",
+      "name": "Filter: New Contact",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "operation": "insert",
+        "tableId": "leads",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "email",
+              "fieldValue": "={{ $json.email }}"
+            },
+            {
+              "fieldId": "first_name",
+              "fieldValue": "={{ $json.firstName }}"
+            },
+            {
+              "fieldId": "last_name",
+              "fieldValue": "={{ $json.lastName }}"
+            },
+            {
+              "fieldId": "phone",
+              "fieldValue": "={{ $json.phone }}"
+            },
+            {
+              "fieldId": "ghl_contact_id",
+              "fieldValue": "={{ $json.id }}"
+            },
+            {
+              "fieldId": "source",
+              "fieldValue": "GHL Webhook"
+            },
+            {
+              "fieldId": "status",
+              "fieldValue": "new"
+            },
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "id": "supabase-insert",
+      "name": "Insert to Supabase",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        680,
+        220
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "supabase-credentials",
+          "name": "Supabase lovabel-dev"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"status\": \"success\", \"message\": \"Lead processed successfully\", \"leadId\": \"{{ $json.id }}\"}"
+      },
+      "id": "success-response",
+      "name": "Success Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        900,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\"status\": \"ignored\", \"message\": \"Not a contact creation event\"}",
+        "statusCode": 200
+      },
+      "id": "ignore-response",
+      "name": "Ignore Response",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        680,
+        380
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "database",
+        "operation": "insert",
+        "tableId": "activity_logs",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "event_type",
+              "fieldValue": "ghl_webhook_received"
+            },
+            {
+              "fieldId": "event_data",
+              "fieldValue": "={{ JSON.stringify($json) }}"
+            },
+            {
+              "fieldId": "source",
+              "fieldValue": "n8n"
+            },
+            {
+              "fieldId": "created_at",
+              "fieldValue": "={{ new Date().toISOString() }}"
+            }
+          ]
+        }
+      },
+      "id": "log-activity",
+      "name": "Log Activity",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        460,
+        140
+      ],
+      "credentials": {
+        "supabaseApi": {
+          "id": "supabase-credentials",
+          "name": "Supabase lovabel-dev"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "GHL Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Filter: New Contact",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Log Activity",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter: New Contact": {
+      "main": [
+        [
+          {
+            "node": "Insert to Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Ignore Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert to Supabase": {
+      "main": [
+        [
+          {
+            "node": "Success Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "saveExecutionProgress": true,
+    "saveManualExecutions": true
+  },
+  "versionId": "1",
+  "meta": {
+    "templateCredsSetupCompleted": false
+  },
+  "id": "ghl-lead-sync",
+  "tags": ["ghl", "supabase", "leads", "webhook"]
+}

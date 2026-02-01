@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lovable Integration Test</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; background: #1a1a1a; color: white; }
+    .container { max-width: 800px; margin: 0 auto; }
+    .button { padding: 1rem 2rem; background: #6366f1; color: white; border: none; border-radius: 8px; cursor: pointer; margin: 1rem; }
+    .status { padding: 1rem; background: #333; border-radius: 8px; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Lovable + Supabase Integration Test</h1>
+    
+    <div class="status" id="status">
+      Ready to test Lovable integration...
+    </div>
+    
+    <h3>Quick Links:</h3>
+    <button class="button" onclick="window.open('https://lovable.dev', '_blank')">Open Lovable.dev</button>
+    <button class="button" onclick="window.open('https://supabase.com/dashboard/project/kixghhmqnnnkhiuminoe', '_blank')">Open Your Supabase</button>
+    <button class="button" onclick="testSupabaseConnection()">Test Supabase Connection</button>
+    
+    <h3>Your Project Details:</h3>
+    <div class="status">
+      <strong>Supabase Project:</strong> lovabel-dev<br>
+      <strong>Project ID:</strong> kixghhmqnnnkhiuminoe<br>
+      <strong>URL:</strong> https://kixghhmqnnnkhiuminoe.supabase.co<br>
+      <strong>Region:</strong> West US (North California)
+    </div>
+    
+    <h3>Integration Steps:</h3>
+    <ol>
+      <li>Go to Lovable.dev and create a new project</li>
+      <li>In Lovable settings, connect this Supabase project</li>
+      <li>Build your landing pages in Lovable</li>
+      <li>Export to GitHub (Delta0537)</li>
+      <li>Pull into this project and refine with Cursor</li>
+    </ol>
+  </div>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://kixghhmqnnnkhiuminoe.supabase.co',
+      'sb_publishable_4LFleAeJ2VAiRhK-iBtRlw_atTDx'
+    );
+    
+    async function testSupabaseConnection() {
+      const statusEl = document.getElementById('status');
+      statusEl.textContent = 'Testing Supabase connection...';
+      
+      try {
+        const { data, error } = await supabase.auth.getSession();
+        if (error) throw error;
+        statusEl.innerHTML = '<strong>✅ Supabase Connected!</strong><br>Ready for Lovable integration.';
+        statusEl.style.background = '#10b981';
+      } catch (error) {
+        statusEl.innerHTML = '<strong>❌ Connection Error:</strong><br>' + error.message;
+        statusEl.style.background = '#ef4444';
+      }
+    }
+  </script>
+</body>
+</html>

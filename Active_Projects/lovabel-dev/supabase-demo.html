@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supabase Demo - lovabel.dev</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <style>
+    .demo-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .demo-section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+    }
+    .demo-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 300px;
+    }
+    .demo-input {
+      padding: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      font-family: inherit;
+    }
+    .demo-button {
+      padding: 0.75rem 1.5rem;
+      background: #D4AF37;
+      color: black;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .demo-button:hover {
+      background: #E5C547;
+    }
+    .demo-button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .demo-output {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 1rem;
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      white-space: pre-wrap;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .success { color: #4ade80; }
+    .error { color: #f87171; }
+    .info { color: #60a5fa; }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="wrap">
+    <header class="header">
+      <a href="/" class="logo">lovabel<span class="dot">.</span>dev</a>
+      <nav class="nav">
+        <a href="index.html">← Back to main</a>
+      </nav>
+    </header>
+
+    <div class="demo-container">
+      <h1>Supabase Integration Demo</h1>
+      <p>Test your Supabase connection and functionality.</p>
+
+      <!-- Connection Status -->
+      <div class="demo-section">
+        <h3>Connection Status</h3>
+        <button class="demo-button" onclick="testConnection()">Test Connection</button>
+        <div id="connection-output" class="demo-output"></div>
+      </div>
+
+      <!-- Authentication -->
+      <div class="demo-section">
+        <h3>Authentication</h3>
+        <div id="auth-status" class="demo-output">Not authenticated</div>
+        
+        <div class="demo-form">
+          <input type="email" id="email" class="demo-input" placeholder="Email">
+          <input type="password" id="password" class="demo-input" placeholder="Password">
+          <button class="demo-button" onclick="signUp()">Sign Up</button>
+          <button class="demo-button" onclick="signIn()">Sign In</button>
+          <button class="demo-button" onclick="signOut()">Sign Out</button>
+        </div>
+        <div id="auth-output" class="demo-output"></div>
+      </div>
+
+      <!-- Database Operations -->
+      <div class="demo-section">
+        <h3>Database Operations</h3>
+        <p><em>Note: You'll need to create a 'test_data' table in your Supabase project first.</em></p>
+        
+        <div class="demo-form">
+          <input type="text" id="test-name" class="demo-input" placeholder="Name">
+          <input type="text" id="test-value" class="demo-input" placeholder="Value">
+          <button class="demo-button" onclick="insertTestData()">Insert Data</button>
+          <button class="demo-button" onclick="fetchTestData()">Fetch Data</button>
+        </div>
+        <div id="db-output" class="demo-output"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Supabase Configuration for Delta0537 (cleanslate0537@gmail.com)
+    const SUPABASE_URL = 'https://kixghhmqnnnkhiuminoe.supabase.co'; // Your lovabel-dev project
+    const SUPABASE_ANON_KEY = 'sb_publishable_4LFleAeJ2VAiRhK-iBtRlw_atTDx'; // Your anon key
+
+    let supabase = null;
+
+    // Initialize Supabase
+    function initSupabase() {
+      try {
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        console.log('Supabase initialized');
+        
+        // Listen to auth changes
+        supabase.auth.onAuthStateChange((event, session) => {
+          console.log('Auth state changed:', event, session);
+          updateAuthStatus(session);
+          
+          // Handle OAuth callback
+          if (event === 'SIGNED_IN' && session) {
+            // Clear URL hash/params that might cause issues
+            if (window.location.hash || window.location.search) {
+              window.history.replaceState({}, document.title, window.location.pathname);
+            }
+          }
+        });
+        
+        // Check initial auth state
+        supabase.auth.getSession().then(({ data: { session } }) => {
+          updateAuthStatus(session);
+        });
+        
+      } catch (error) {
+        console.error('Failed to initialize Supabase:', error);
+      }
+    }
+
+    // Update auth status display
+    function updateAuthStatus(session) {
+      const statusEl = document.getElementById('auth-status');
+      if (session) {
+        statusEl.innerHTML = `<span class="success">Authenticated as: ${session.user.email}</span>`;
+      } else {
+        statusEl.innerHTML = `<span class="info">Not authenticated</span>`;
+      }
+    }
+
+    // Test connection
+    async function testConnection() {
+      const output = document.getElementById('connection-output');
+      output.innerHTML = 'Testing connection...';
+      
+      try {
+        if (!supabase) {
+          throw new Error('Supabase not initialized');
+        }
+        
+        const { data, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          throw error;
+        }
+        
+        output.innerHTML = `<span class="success">✅ Connection successful!</span>\nSupabase URL: ${SUPABASE_URL}`;
+      } catch (error) {
+        output.innerHTML = `<span class="error">❌ Connection failed:</span>\n${error.message}`;
+      }
+    }
+
+    // Authentication functions
+    async function signUp() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const output = document.getElementById('auth-output');
+      
+      if (!email || !password) {
+        output.innerHTML = '<span class="error">Please enter email and password</span>';
+        return;
+      }
+      
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password
+        });
+        
+        if (error) throw error;
+        
+        output.innerHTML = `<span class="success">✅ Sign up successful!</span>\nUser: ${data.user?.email}\nCheck your email for confirmation.`;
+      } catch (error) {
+        output.innerHTML = `<span class="error">❌ Sign up failed:</span>\n${error.message}`;
+      }
+    }
+
+    async function signIn() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const output = document.getElementById('auth-output');
+      
+      if (!email || !password) {
+        output.innerHTML = '<span class="error">Please enter email and password</span>';
+        return;
+      }
+      
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+        
+        if (error) throw error;
+        
+        output.innerHTML = `<span class="success">✅ Sign in successful!</span>\nWelcome back, ${data.user.email}`;
+      } catch (error) {
+        output.innerHTML = `<span class="error">❌ Sign in failed:</span>\n${error.message}`;
+      }
+    }
+
+    async function signOut() {
+      const output = document.getElementById('auth-output');
+      
+      try {
+        const { error } = await supabase.auth.signOut();
+        
+        if (error) throw error;
+        
+        output.innerHTML = `<span class="success">✅ Signed out successfully!</span>`;
+      } catch (error) {
+        output.innerHTML = `<span class="error">❌ Sign out failed:</span>\n${error.message}`;
+      }
+    }
+
+    // Database functions
+    async function insertTestData() {
+      const name = document.getElementById('test-name').value;
+      const value = document.getElementById('test-value').value;
+      const output = document.getElementById('db-output');
+      
+      if (!name || !value) {
+        output.innerHTML = '<span class="error">Please enter both name and value</span>';
+        return;
+      }
+      
+      try {
+        const { data, error } = await supabase
+          .from('test_data')
+          .insert([{ name, value }])
+          .select();
+        
+        if (error) throw error;
+        
+        output.innerHTML = `<span class="success">✅ Data inserted successfully!</span>\n${JSON.stringify(data, null, 2)}`;
+      } catch (error) {
+        output.innerHTML = `<span class="error">❌ Insert failed:</span>\n${error.message}`;
+      }
+    }
+
+    async function fetchTestData() {
+      const output = document.getElementById('db-output');
+      
+      try {
+        const { data, error } = await supabase
+          .from('test_data')
+          .select('*')
+          .limit(10);
+        
+        if (error) throw error;
+        
+        output.innerHTML = `<span class="success">✅ Data fetched successfully!</span>\n${JSON.stringify(data, null, 2)}`;
+      } catch (error) {
+        output.innerHTML = `<span class="error">❌ Fetch failed:</span>\n${error.message}`;
+      }
+    }
+
+    // Initialize when page loads
+    document.addEventListener('DOMContentLoaded', initSupabase);
+  </script>
+</body>
+</html>

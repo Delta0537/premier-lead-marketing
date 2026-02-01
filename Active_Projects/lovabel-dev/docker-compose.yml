@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  # n8n automation platform
+  n8n:
+    image: n8nio/n8n:latest
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      # Basic configuration
+      - N8N_BASIC_AUTH_ACTIVE=true
+      - N8N_BASIC_AUTH_USER=admin
+      - N8N_BASIC_AUTH_PASSWORD=your_secure_password_here
+      
+      # Database connection (using your Supabase)
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=db.kixghhmqnnnkhiuminoe.supabase.co
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=postgres
+      - DB_POSTGRESDB_USER=postgres
+      - DB_POSTGRESDB_PASSWORD=your_supabase_db_password
+      
+      # Webhook configuration
+      - N8N_HOST=localhost
+      - N8N_PORT=5678
+      - N8N_PROTOCOL=http
+      - WEBHOOK_URL=http://localhost:5678
+      
+      # Security & Performance
+      - N8N_SECURE_COOKIE=false
+      - N8N_METRICS=true
+      - EXECUTIONS_PROCESS=main
+      - EXECUTIONS_DATA_PRUNE=true
+      - EXECUTIONS_DATA_MAX_AGE=168
+      
+      # Custom nodes and templates
+      - N8N_CUSTOM_EXTENSIONS=/home/node/.n8n/custom
+      
+    volumes:
+      # Persist n8n data
+      - n8n_data:/home/node/.n8n
+      # Custom workflows and templates
+      - ./n8n/workflows:/home/node/.n8n/workflows
+      - ./n8n/credentials:/home/node/.n8n/credentials
+      - ./n8n/custom:/home/node/.n8n/custom
+    depends_on:
+      - redis
+    networks:
+      - n8n-network
+
+  # Redis for caching and queues
+  redis:
+    image: redis:7-alpine
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - n8n-network
+    command: redis-server --appendonly yes
+
+  # PostgreSQL for local development (optional - you can use Supabase)
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      - POSTGRES_DB=n8n_local
+      - POSTGRES_USER=n8n_user
+      - POSTGRES_PASSWORD=n8n_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - n8n-network
+
+  # n8n worker for heavy processing (optional)
+  n8n-worker:
+    image: n8nio/n8n:latest
+    restart: always
+    command: worker
+    environment:
+      - DB_TYPE=postgresdb
+      - DB_POSTGRESDB_HOST=db.kixghhmqnnnkhiuminoe.supabase.co
+      - DB_POSTGRESDB_PORT=5432
+      - DB_POSTGRESDB_DATABASE=postgres
+      - DB_POSTGRESDB_USER=postgres
+      - DB_POSTGRESDB_PASSWORD=your_supabase_db_password
+      - EXECUTIONS_PROCESS=own
+      - N8N_ENCRYPTION_KEY=your_encryption_key_here
+    volumes:
+      - n8n_data:/home/node/.n8n
+    depends_on:
+      - n8n
+      - redis
+    networks:
+      - n8n-network
+
+volumes:
+  n8n_data:
+    driver: local
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+
+networks:
+  n8n-network:
+    driver: bridge

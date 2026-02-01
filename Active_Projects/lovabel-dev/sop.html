@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full SOP — AI Vibe Coding Stack | lovabel.dev</title>
+  <meta name="description" content="Standard Operating Procedure: Lovable + Cursor for PLM digital assets.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="wrap sop-wrap">
+    <header class="header">
+      <a href="index.html" class="logo">lovabel<span class="dot">.</span>dev</a>
+      <nav class="nav">
+        <a href="index.html">hub</a>
+        <a href="index.html#workflows">workflows</a>
+        <a href="index.html#cheatsheet">cursor</a>
+      </nav>
+    </header>
+
+    <article class="sop">
+      <h1 class="sop-title">STANDARD OPERATING PROCEDURE (SOP)<br>AI "Vibe Coding" Stack</h1>
+      <p class="sop-meta"><strong>Effective:</strong> January 2026 | <strong>Owner:</strong> PLM | <strong>Stack:</strong> Lovable.dev (UI) + Cursor (Logic/Refinement)</p>
+
+      <section class="sop-section">
+        <h2>1. Executive Summary</h2>
+        <p>This SOP defines the workflow for using Generative AI to build enterprise-grade websites, landing pages, and interactive marketing assets. By bypassing traditional website builders (WordPress/ClickFunnels), PLM retains full code ownership, increases site speed, and eliminates monthly licensing fees.</p>
+        <ul>
+          <li><strong>Lovable.dev:</strong> Rapid visual prototyping, UI design, initial codebase. (The Architect)</li>
+          <li><strong>Cursor:</strong> Refining code, connecting APIs (GoHighLevel), fixing bugs, deployment. (The Builder)</li>
+        </ul>
+      </section>
+
+      <section class="sop-section">
+        <h2>2. Prerequisites & Setup</h2>
+        <ul>
+          <li><strong>Lovable Account</strong> — For generating the initial project</li>
+          <li><strong>GitHub Account</strong> — To host repositories</li>
+          <li><strong>Cursor Editor</strong> — Installed (VS Code fork)</li>
+          <li><strong>Node.js</strong> — For running code locally</li>
+          <li><strong>Supabase (Optional)</strong> — For databases, user logins</li>
+        </ul>
+      </section>
+
+      <section id="agency" class="sop-section">
+        <h2>3. Use Case 1: Agency Websites</h2>
+        <p><strong>Goal:</strong> High-end PLM-style brochure site.</p>
+        <h3>Step 1 (Lovable)</h3>
+        <blockquote>
+          "Build a high-end digital agency website. Theme: Black, Gold, White. Typography: Montserrat and Open Sans. Sections: Hero with 'Vibe Coding' hook, Services Grid, 'Our Process' timeline, Case Studies with data viz, 'Book Strategy' footer."
+        </blockquote>
+        <p>Refine: "Make the gold gradient softer," or "Add glassmorphism to service cards."</p>
+        <h3>Step 2 (Hand-off)</h3>
+        <p>Export to GitHub in Lovable → Clone in Cursor.</p>
+        <h3>Step 3 (Cursor)</h3>
+        <ul>
+          <li>Mobile: "Check responsive design. Ensure Hero text doesn't overlap."</li>
+          <li>SEO: "Add meta tags, title 'Premier Lead Marketing | Mobile AL', OpenGraph."</li>
+          <li>Animations: "Add Framer Motion fade-in to service cards on scroll."</li>
+        </ul>
+      </section>
+
+      <section id="landing" class="sop-section">
+        <h2>4. Use Case 2: Landing Pages (GHL Funnels)</h2>
+        <p><strong>Goal:</strong> Real estate capture page (e.g. "What's My Home Worth?").</p>
+        <h3>Step 1 (Lovable)</h3>
+        <blockquote>
+          "Create a single-page real estate landing page. Hero: 'Mobile, AL Real Estate Market Report - Free Download.' Center: Form for Address + Email. Below fold: 3 bullets on why market is booming (Airport, Port). Style: Clean, trustworthy, blue and white."
+        </blockquote>
+        <h3>Step 2 (Cursor — GHL Integration)</h3>
+        <blockquote>
+          "Connect this form to a webhook. On submit, send Address and Email to this GHL Webhook URL: [Insert URL]. Add error handling. After success, redirect to Thank You page."
+        </blockquote>
+      </section>
+
+      <section id="social" class="sop-section">
+        <h2>5. Use Case 3: Link-in-Bio / Calculators</h2>
+        <p><strong>Strategy A: Link Tree style</strong></p>
+        <blockquote>
+          "Build a mobile-first Link Tree style page. Profile picture top. 5 glassmorphism buttons: 'Home Valuation,' 'Search Homes,' 'Partner with Us.' Background: subtle animated black/gold gradient."
+        </blockquote>
+        <p><strong>Strategy B: Viral Calculator</strong></p>
+        <blockquote>
+          "Build a Rent vs Buy calculator. Inputs: Monthly Rent, Home Price. Output: Chart showing net worth over 10 years. Chart animates."
+        </blockquote>
+        <p>You own traffic data, not Linktree. Screen-record for TikTok.</p>
+      </section>
+
+      <section id="portals" class="sop-section">
+        <h2>6. Use Case 4: Client Portals (CEO Dashboard)</h2>
+        <p><strong>Step 1 (Lovable)</strong></p>
+        <blockquote>
+          "Build a SaaS dashboard. Sidebar: Leads, Pipeline Value, ROI. Main: 3 metric cards, line graph for lead growth. Dark mode, enterprise style."
+        </blockquote>
+        <p><strong>Step 2 (Cursor)</strong></p>
+        <ul>
+          <li>"Connect charts to mock JSON for now. Structure so we can swap with GHL API later."</li>
+          <li>"Wrap dashboard in Supabase auth so only logged-in users see it."</li>
+        </ul>
+      </section>
+
+      <section class="sop-section">
+        <h2>7. Deployment</h2>
+        <ol>
+          <li>Create free Netlify or Vercel account</li>
+          <li>Connect GitHub repository</li>
+          <li>Click Publish</li>
+          <li>Add custom domain (e.g. portal.premierleadmarketing.ai)</li>
+        </ol>
+      </section>
+
+      <section class="sop-section">
+        <h2>8. Micro-Test</h2>
+        <p>Start with <strong>Use Case 2 (Landing Page)</strong> — fastest path to ROI. Use the "Mobile AL Real Estate Market Report" prompt above.</p>
+      </section>
+
+      <p class="sop-back"><a href="index.html" class="btn btn-ghost">← Back to hub</a></p>
+    </article>
+
+    <footer class="footer">
+      <p>lovabel.dev — PLM GHL Hub. Full SOP for Lovable + Cursor workflow.</p>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+VIBE CODING WITH CURSOR & LOVEABLE.DEV
+
+To build enterprise-grade websites using the "vibe coding" methodology, developers are not just using one app; they are using a specific stack of AI-native tools that center around Anthropic’s Claude 3.5 Sonnet model.
+
+"Vibe coding" refers to the practice of prompting an AI to build significant chunks of functionality (or entire apps) using natural language, effectively treating English as the programming language.
+
+Here are the specific apps and workflows vibe coders use to build high-level, enterprise-grade sites in conjunction with Claude Code.
+
+1. The Core "Vibe Coding" Editor: Cursor
+If you are serious about enterprise-grade code, Cursor is the primary tool you need. It is a fork of VS Code with AI baked into the core.
+
+How it works with Claude: Cursor allows you to select "Claude 3.5 Sonnet" as the underlying model. This model is currently widely considered the "king" of coding tasks.
+
+The "Vibe" Feature: The Composer (Cmd+I) feature in Cursor is the key. You can open a pane, type "Build a dashboard with a sidebar navigation, dark mode toggle, and a settings page using React and Tailwind," and it will generate multiple files, edit existing code, and structure the project for you in real-time.
+
+Enterprise Use: Unlike web-based generators, Cursor runs locally. This means you can use it on massive, secure, existing codebases without breaking your professional workflow.
+
+2. The Rapid "Scaffolders" (Web-Based)
+For starting a project from scratch (0 to 1) instantly, vibe coders use these browser-based tools to generate the initial full-stack repository, which they then export to Cursor for fine-tuning.
+
+Lovable (lovable.dev):
+
+Best for: Full-stack SaaS apps with a database.
+
+The Workflow: You describe your SaaS idea. Lovable builds the UI (React/Shadcn), connects a database (Supabase), and handles authentication.
++1
+
+Enterprise connection: It syncs directly to GitHub. You "vibe" the initial version in the browser, then pull the code into Cursor/Claude Code to add complex custom logic.
+
+Replit (replit.com):
+
+Best for: Instant deployment and collaborative "agent" building.
+
+The Feature: Replit's "Agent" can take a vague prompt ("Build a CRM for a dental office") and iteratively build, debug, and deploy a working app autonomously.
+
+Enterprise connection: Replit has heavily integrated Claude Code (the CLI tool) directly into its environment, making it a powerful platform for teams who don't want to manage local environments (Docker/Node versions).
+
+v0 (v0.dev by Vercel):
+
+Best for: Production-grade UI/Frontend components.
+
+The Workflow: If you need a specific, complex UI element (e.g., "A complex pricing table with tooltips and a currency toggle"), you prompt v0. It gives you copy-paste ready code (React + Tailwind) that is often cleaner and more accessible than other generators.
+
+3. The Autonomous Agent: Claude Code (CLI)
+You mentioned "Claude Code"—it is important to distinguish that Claude Code is specifically an official command-line interface (CLI) tool released by Anthropic.
+
+What it does: It runs in your terminal. You can tell it, "Refactor the authentication module to use NextAuth instead of custom JWTs," and it will explore your file system, read files, plan the changes, edit the code, and run tests to verify it works.
++1
+
+Enterprise Use: This is used for "janitorial" or complex refactoring tasks in large codebases where you need an agent to act autonomously while you work on high-level architecture.
+
+Summary: The "Enterprise Vibe" Workflow
+To build a truly enterprise-grade website (secure, scalable, maintainable) today, the pro workflow is:
+
+Scaffold with Lovable or v0: Use these to get a beautiful, working UI in 10 minutes.
+
+Move to Cursor: Export the code to a GitHub repo and open it in Cursor.
+
+Refine with Claude 3.5 Sonnet: Use Cursor's "Composer" mode to add complex business logic, integrate APIs (Stripe, Salesforce), and harden security.
+
+Agentic Polish: Use the Claude Code CLI in your terminal to fix bugs across the whole project ("Fix all the TypeScript errors in the /app directory").
+
+Next Step
+Would you like me to walk you through the setup for the Cursor + Claude 3.5 Sonnet workflow, which is the most robust starting point for enterprise development?

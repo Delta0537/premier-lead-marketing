@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Lead Marketing - TikTok Ad</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .tiktok-ad {
+      width: 375px;
+      height: 667px;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 30px;
+      color: white;
+    }
+
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .floating-icon {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-icon:nth-child(2) {
+      top: 20%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .floating-icon:nth-child(3) {
+      bottom: 30%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    .floating-icon:nth-child(4) {
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .header {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00d4ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .main-content {
+      text-align: center;
+      z-index: 2;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hook {
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #00d4ff, #ff6b6b, #4ecdc4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px rgba(0, 212, 255, 0.3)); }
+      to { filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6)); }
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00d4ff;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .benefits {
+      margin: 20px 0;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .benefit::before {
+      content: "✨";
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .cta-section {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .cta-button {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+    }
+
+    .website {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    .ai-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 212, 255, 0.2);
+      border: 1px solid #00d4ff;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 10px;
+      color: #00d4ff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.5; }
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: #00d4ff;
+      border-radius: 50%;
+      animation: particle-float 8s linear infinite;
+    }
+
+    .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; animation-delay: 1s; }
+    .particle:nth-child(3) { left: 30%; animation-delay: 2s; }
+    .particle:nth-child(4) { left: 40%; animation-delay: 3s; }
+    .particle:nth-child(5) { left: 50%; animation-delay: 4s; }
+    .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
+    .particle:nth-child(7) { left: 70%; animation-delay: 6s; }
+    .particle:nth-child(8) { left: 80%; animation-delay: 7s; }
+
+    @keyframes particle-float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 400px) {
+      .tiktok-ad {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="tiktok-ad">
+    <!-- AI Badge -->
+    <div class="ai-badge">AI Powered</div>
+
+    <!-- Floating Background Elements -->
+    <div class="floating-elements">
+      <div class="floating-icon" style="font-size: 30px;">🚀</div>
+      <div class="floating-icon" style="font-size: 25px;">💼</div>
+      <div class="floating-icon" style="font-size: 35px;">📈</div>
+      <div class="floating-icon" style="font-size: 28px;">⚡</div>
+    </div>
+
+    <!-- Animated Particles -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- Header -->
+    <div class="header">
+      <div class="logo">PREMIER LEAD MARKETING</div>
+      <div class="tagline">AI Marketing Solutions</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <div class="hook">
+        Stop Losing Leads to Your Competition!
+      </div>
+
+      <div class="stats-container">
+        <div class="stat">
+          <span class="stat-number">10K+</span>
+          <span class="stat-label">Leads Generated</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">300%</span>
+          <span class="stat-label">ROI Increase</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">$5M+</span>
+          <span class="stat-label">Client Revenue</span>
+        </div>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit">AI-Powered Lead Generation</div>
+        <div class="benefit">Automated Follow-Up Systems</div>
+        <div class="benefit">Custom High-Converting Websites</div>
+        <div class="benefit">Complete Marketing Automation</div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+      <a href="https://premierleadmarketing.ai" class="cta-button" target="_blank">
+        Get More Leads Now
+      </a>
+      <div class="website">premierleadmarketing.ai</div>
+    </div>
+  </div>
+
+  <script>
+    // Add some interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctaButton = document.querySelector('.cta-button');
+      const stats = document.querySelectorAll('.stat-number');
+      
+      // Animate stats on load
+      stats.forEach((stat, index) => {
+        setTimeout(() => {
+          stat.style.animation = 'glow 1s ease-in-out';
+        }, index * 200);
+      });
+
+      // Add click tracking for the CTA
+      ctaButton.addEventListener('click', function() {
+        // Add analytics tracking here if needed
+        console.log('TikTok Ad CTA clicked');
+      });
+
+      // Add hover effects for mobile
+      ctaButton.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.95)';
+      });
+
+      ctaButton.addEventListener('touchend', function() {
+        this.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+</body>
+</html>

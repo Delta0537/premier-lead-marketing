@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor-Friendly Auth - lovabel-dev</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #2d2d2d;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #404040;
+        }
+        h1 {
+            color: #00ff88;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .auth-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 8px;
+            border-left: 4px solid #00ff88;
+        }
+        button {
+            background: #00ff88;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #00cc6a;
+        }
+        .external-btn {
+            background: #0066ff;
+            color: white;
+        }
+        .external-btn:hover {
+            background: #0052cc;
+        }
+        .status {
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .success {
+            background: #0d4d2a;
+            border: 1px solid #00ff88;
+        }
+        .error {
+            background: #4d0d0d;
+            border: 1px solid #ff4444;
+        }
+        .info {
+            background: #1a2d4d;
+            border: 1px solid #4488ff;
+        }
+        .auth-token {
+            background: #2d2d2d;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: monospace;
+            word-break: break-all;
+            border: 1px solid #404040;
+        }
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Cursor-Friendly Authentication</h1>
+        
+        <div class="auth-section">
+            <h3>🔥 Quick Start (Recommended for Cursor)</h3>
+            <p>Test connection and get auth token for your projects:</p>
+            <div class="quick-actions">
+                <button id="test-connection">Test Supabase Connection</button>
+                <button id="quick-signin">Quick Email Sign In</button>
+                <button id="external-oauth" class="external-btn">OAuth in External Browser</button>
+            </div>
+        </div>
+
+        <div class="auth-section">
+            <h3>💫 Email Authentication (Works in Cursor)</h3>
+            <input type="email" id="email" placeholder="Email" value="test@example.com" 
+                   style="width: 200px; padding: 8px; margin: 5px; background: #1e1e1e; border: 1px solid #404040; color: #fff; border-radius: 4px;">
+            <input type="password" id="password" placeholder="Password" value="password123"
+                   style="width: 200px; padding: 8px; margin: 5px; background: #1e1e1e; border: 1px solid #404040; color: #fff; border-radius: 4px;">
+            <button id="signup-btn">Sign Up</button>
+            <button id="signin-btn">Sign In</button>
+            <button id="signout-btn" style="display: none;">Sign Out</button>
+        </div>
+
+        <div id="status" class="status info">
+            Ready to authenticate - Cursor-friendly version
+        </div>
+
+        <div id="auth-details" style="display: none;">
+            <h3>🔑 Authentication Token (Copy for Lovable)</h3>
+            <div id="auth-token" class="auth-token"></div>
+            <button id="copy-token">Copy Token</button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Supabase
+        const supabaseUrl = 'https://kixghhmqnnnkhiuminoe.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtpeGdoaG1xbm5ua2hpdW1pbm9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzg0MzI4NTIsImV4cCI6MjA1NDAwODg1Mn0.sb_publishable_4LFleAeJ2VAiRhK-iBtRlw_atTDxmNmGfXJsqgN8U8';
+        
+        const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+        // DOM elements
+        const statusDiv = document.getElementById('status');
+        const authDetails = document.getElementById('auth-details');
+        const authToken = document.getElementById('auth-token');
+
+        // Update status function
+        function updateStatus(message, type = 'info') {
+            statusDiv.textContent = message;
+            statusDiv.className = `status ${type}`;
+            console.log(`[${type.toUpperCase()}] ${message}`);
+        }
+
+        // Update auth status
+        function updateAuthStatus(session) {
+            if (session) {
+                updateStatus(`✅ Authenticated as: ${session.user.email}`, 'success');
+                authToken.textContent = session.access_token;
+                authDetails.style.display = 'block';
+                document.getElementById('signout-btn').style.display = 'inline-block';
+                
+                // Store token for later use
+                localStorage.setItem('supabase-token', session.access_token);
+                localStorage.setItem('supabase-user', JSON.stringify(session.user));
+            } else {
+                updateStatus('Not authenticated', 'info');
+                authDetails.style.display = 'none';
+                document.getElementById('signout-btn').style.display = 'none';
+                localStorage.removeItem('supabase-token');
+                localStorage.removeItem('supabase-user');
+            }
+        }
+
+        // Auth state change listener
+        supabase.auth.onAuthStateChange((event, session) => {
+            console.log('Auth state changed:', event, session);
+            updateAuthStatus(session);
+        });
+
+        // Test connection
+        document.getElementById('test-connection').addEventListener('click', async () => {
+            try {
+                updateStatus('Testing connection...', 'info');
+                const { data, error } = await supabase.from('test').select('*').limit(1);
+                
+                if (error && error.code === 'PGRST116') {
+                    updateStatus('✅ Supabase connection successful!', 'success');
+                } else if (error) {
+                    updateStatus(`Connection: ${error.message}`, 'info');
+                } else {
+                    updateStatus('✅ Connection and database working!', 'success');
+                }
+            } catch (err) {
+                updateStatus(`Connection test failed: ${err.message}`, 'error');
+            }
+        });
+
+        // Quick sign in
+        document.getElementById('quick-signin').addEventListener('click', async () => {
+            try {
+                updateStatus('Quick signing in...', 'info');
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: 'test@example.com',
+                    password: 'password123'
+                });
+
+                if (error && error.message.includes('Invalid login credentials')) {
+                    // Auto sign up if user doesn't exist
+                    const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+                        email: 'test@example.com',
+                        password: 'password123'
+                    });
+                    
+                    if (signUpError) {
+                        updateStatus(`Auto signup failed: ${signUpError.message}`, 'error');
+                    } else {
+                        updateStatus('✅ Account created and signed in!', 'success');
+                    }
+                } else if (error) {
+                    updateStatus(`Sign in error: ${error.message}`, 'error');
+                } else {
+                    updateStatus('✅ Signed in successfully!', 'success');
+                }
+            } catch (err) {
+                updateStatus(`Quick sign in failed: ${err.message}`, 'error');
+            }
+        });
+
+        // External OAuth
+        document.getElementById('external-oauth').addEventListener('click', () => {
+            const oauthUrl = `${supabaseUrl}/auth/v1/authorize?provider=google&redirect_to=${encodeURIComponent(window.location.href)}`;
+            updateStatus('Opening OAuth in external browser...', 'info');
+            
+            // Open in external browser
+            window.open(oauthUrl, '_blank');
+            
+            // Poll for auth status
+            const pollAuth = setInterval(async () => {
+                const { data: { session } } = await supabase.auth.getSession();
+                if (session) {
+                    clearInterval(pollAuth);
+                    updateStatus('✅ OAuth completed in external browser!', 'success');
+                    updateAuthStatus(session);
+                }
+            }, 2000);
+            
+            // Stop polling after 2 minutes
+            setTimeout(() => clearInterval(pollAuth), 120000);
+        });
+
+        // Regular email/password handlers
+        document.getElementById('signup-btn').addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                updateStatus('Signing up...', 'info');
+                const { data, error } = await supabase.auth.signUp({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    updateStatus(`Signup error: ${error.message}`, 'error');
+                } else {
+                    updateStatus('✅ Sign up successful!', 'success');
+                }
+            } catch (err) {
+                updateStatus(`Signup failed: ${err.message}`, 'error');
+            }
+        });
+
+        document.getElementById('signin-btn').addEventListener('click', async () => {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                updateStatus('Signing in...', 'info');
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    updateStatus(`Sign in error: ${error.message}`, 'error');
+                } else {
+                    updateStatus('✅ Successfully signed in!', 'success');
+                }
+            } catch (err) {
+                updateStatus(`Sign in failed: ${err.message}`, 'error');
+            }
+        });
+
+        // Sign out
+        document.getElementById('signout-btn').addEventListener('click', async () => {
+            try {
+                const { error } = await supabase.auth.signOut();
+                if (error) {
+                    updateStatus(`Sign out error: ${error.message}`, 'error');
+                } else {
+                    updateStatus('Signed out successfully', 'info');
+                }
+            } catch (err) {
+                updateStatus(`Sign out failed: ${err.message}`, 'error');
+            }
+        });
+
+        // Copy token
+        document.getElementById('copy-token').addEventListener('click', () => {
+            navigator.clipboard.writeText(authToken.textContent);
+            updateStatus('✅ Token copied to clipboard!', 'success');
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // Check for existing session
+                const { data: { session } } = await supabase.auth.getSession();
+                updateAuthStatus(session);
+                
+                if (!session) {
+                    updateStatus('Click "Quick Email Sign In" to get started in Cursor', 'info');
+                }
+            } catch (err) {
+                updateStatus(`Initialization error: ${err.message}`, 'error');
+            }
+        });
+    </script>
+</body>
+</html>

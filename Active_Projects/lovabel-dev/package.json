@@ -1,0 +1,28 @@
+{
+  "name": "lovabel-dev",
+  "version": "1.0.0",
+  "description": "lovabel.dev — vibe code. Part of PLM structure.",
+  "private": true,
+  "scripts": {
+    "start": "npx serve -s . -l 3333",
+    "preview": "npx serve -s . -l 3333",
+    "supabase:start": "npx supabase start",
+    "supabase:stop": "npx supabase stop",
+    "supabase:status": "npx supabase status",
+    "supabase:reset": "npx supabase db reset",
+    "supabase:studio": "npx supabase studio",
+    "supabase:login": "npx supabase login",
+    "supabase:projects": "npx supabase projects list",
+    "supabase:credentials": "node get-supabase-credentials.js"
+  },
+  "keywords": [
+    "vibe-code",
+    "lovabel",
+    "plm"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.93.3"
+  }
+}

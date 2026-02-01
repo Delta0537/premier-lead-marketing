@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Lead Marketing - TikTok Ad Variations</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1a1a2e;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      color: #a0a0a0;
+      font-size: 18px;
+    }
+
+    .ad-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .ad-container {
+      position: relative;
+      background: #16213e;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .ad-title {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #00d4ff;
+    }
+
+    .tiktok-ad {
+      width: 375px;
+      height: 667px;
+      background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 30px;
+      color: white;
+      margin: 0 auto;
+    }
+
+    /* Variation 1 - Lead Generation Focus */
+    .variation-1 {
+      background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .variation-1 .hook {
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    /* Variation 2 - ROI Focus */
+    .variation-2 {
+      background: linear-gradient(180deg, #ff6b6b 0%, #ee5a24 100%);
+    }
+
+    .variation-2 .hook {
+      font-size: 26px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    /* Variation 3 - AI Focus */
+    .variation-3 {
+      background: linear-gradient(180deg, #4ecdc4 0%, #44a08d 100%);
+    }
+
+    .variation-3 .hook {
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: #fff;
+      text-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .floating-icon {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .floating-icon:nth-child(1) {
+      top: 10%;
+      left: 10%;
+      animation-delay: 0s;
+    }
+
+    .floating-icon:nth-child(2) {
+      top: 20%;
+      right: 15%;
+      animation-delay: 2s;
+    }
+
+    .floating-icon:nth-child(3) {
+      bottom: 30%;
+      left: 20%;
+      animation-delay: 4s;
+    }
+
+    .floating-icon:nth-child(4) {
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .header-content {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00d4ff;
+      margin-bottom: 10px;
+      text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    }
+
+    .tagline {
+      font-size: 12px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .main-content {
+      text-align: center;
+      z-index: 2;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: space-around;
+      margin: 30px 0;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 18px;
+      font-weight: bold;
+      color: #00d4ff;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 9px;
+      color: #a0a0a0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .benefits {
+      margin: 20px 0;
+    }
+
+    .benefit {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 13px;
+    }
+
+    .benefit::before {
+      content: "✨";
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .cta-section {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .cta-button {
+      background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .website {
+      margin-top: 15px;
+      font-size: 12px;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    .ai-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(0, 212, 255, 0.2);
+      border: 1px solid #00d4ff;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 10px;
+      color: #00d4ff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0.5; }
+    }
+
+    .download-section {
+      text-align: center;
+      margin-top: 40px;
+      padding: 40px;
+      background: #16213e;
+      border-radius: 20px;
+    }
+
+    .download-button {
+      background: linear-gradient(45deg, #00d4ff, #4ecdc4);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .download-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.4);
+    }
+
+    .usage-tips {
+      background: #16213e;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 30px;
+    }
+
+    .usage-tips h3 {
+      color: #00d4ff;
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
+
+    .tip {
+      margin-bottom: 15px;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border-left: 4px solid #00d4ff;
+    }
+
+    .tip strong {
+      color: #00d4ff;
+    }
+
+    @media (max-width: 768px) {
+      .ad-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .tiktok-ad {
+        width: 100%;
+        max-width: 375px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>TikTok Ad Variations for Premier Lead Marketing</h1>
+      <p>Three high-converting ad designs optimized for TikTok's vertical format</p>
+    </div>
+
+    <div class="ad-grid">
+      <!-- Variation 1: Lead Generation Focus -->
+      <div class="ad-container">
+        <div class="ad-title">Variation 1: Lead Generation Focus</div>
+        <div class="tiktok-ad variation-1">
+          <div class="ai-badge">AI Powered</div>
+          
+          <div class="floating-elements">
+            <div class="floating-icon" style="font-size: 30px;">🎯</div>
+            <div class="floating-icon" style="font-size: 25px;">📊</div>
+            <div class="floating-icon" style="font-size: 35px;">📈</div>
+            <div class="floating-icon" style="font-size: 28px;">💰</div>
+          </div>
+
+          <div class="header-content">
+            <div class="logo">PREMIER LEAD MARKETING</div>
+            <div class="tagline">AI Lead Generation</div>
+          </div>
+
+          <div class="main-content">
+            <div class="hook">
+              Your Competition is Stealing Your Leads While You Sleep! 😴
+            </div>
+
+            <div class="stats-container">
+              <div class="stat">
+                <span class="stat-number">10,000+</span>
+                <span class="stat-label">Quality Leads</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Automation</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">100+</span>
+                <span class="stat-label">Happy Clients</span>
+              </div>
+            </div>
+
+            <div class="benefits">
+              <div class="benefit">AI finds your perfect customers</div>
+              <div class="benefit">Automated follow-up sequences</div>
+              <div class="benefit">Quality-verified leads only</div>
+              <div class="benefit">Works while you focus on business</div>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <a href="https://premierleadmarketing.ai" class="cta-button" target="_blank">
+              Get More Leads Today
+            </a>
+            <div class="website">premierleadmarketing.ai</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variation 2: ROI Focus -->
+      <div class="ad-container">
+        <div class="ad-title">Variation 2: ROI Focus</div>
+        <div class="tiktok-ad variation-2">
+          <div class="ai-badge">300% ROI</div>
+          
+          <div class="floating-elements">
+            <div class="floating-icon" style="font-size: 30px;">💎</div>
+            <div class="floating-icon" style="font-size: 25px;">🚀</div>
+            <div class="floating-icon" style="font-size: 35px;">💸</div>
+            <div class="floating-icon" style="font-size: 28px;">⚡</div>
+          </div>
+
+          <div class="header-content">
+            <div class="logo">PREMIER LEAD MARKETING</div>
+            <div class="tagline">ROI Maximization</div>
+          </div>
+
+          <div class="main-content">
+            <div class="hook">
+              Turn $1 into $4 with AI Marketing That Actually Works! 💸
+            </div>
+
+            <div class="stats-container">
+              <div class="stat">
+                <span class="stat-number">300%</span>
+                <span class="stat-label">Average ROI</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">$5M+</span>
+                <span class="stat-label">Client Revenue</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">90 Days</span>
+                <span class="stat-label">To Profit</span>
+              </div>
+            </div>
+
+            <div class="benefits">
+              <div class="benefit">Guaranteed ROI improvement</div>
+              <div class="benefit">Data-driven optimization</div>
+              <div class="benefit">Performance tracking dashboard</div>
+              <div class="benefit">Risk-free trial period</div>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <a href="https://premierleadmarketing.ai" class="cta-button" target="_blank">
+              Triple Your ROI Now
+            </a>
+            <div class="website">premierleadmarketing.ai</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Variation 3: AI Technology Focus -->
+      <div class="ad-container">
+        <div class="ad-title">Variation 3: AI Technology Focus</div>
+        <div class="tiktok-ad variation-3">
+          <div class="ai-badge">Next-Gen AI</div>
+          
+          <div class="floating-elements">
+            <div class="floating-icon" style="font-size: 30px;">🤖</div>
+            <div class="floating-icon" style="font-size: 25px;">⚙️</div>
+            <div class="floating-icon" style="font-size: 35px;">🧠</div>
+            <div class="floating-icon" style="font-size: 28px;">🔮</div>
+          </div>
+
+          <div class="header-content">
+            <div class="logo">PREMIER LEAD MARKETING</div>
+            <div class="tagline">AI-First Marketing</div>
+          </div>
+
+          <div class="main-content">
+            <div class="hook">
+              Stop Doing Marketing Like It's 2010! AI is Here to Dominate 🤖
+            </div>
+
+            <div class="stats-container">
+              <div class="stat">
+                <span class="stat-number">AI</span>
+                <span class="stat-label">Powered</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Smart</span>
+                <span class="stat-label">Automation</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">Future</span>
+                <span class="stat-label">Ready</span>
+              </div>
+            </div>
+
+            <div class="benefits">
+              <div class="benefit">Advanced AI lead scoring</div>
+              <div class="benefit">Predictive customer behavior</div>
+              <div class="benefit">Automated A/B testing</div>
+              <div class="benefit">Real-time optimization</div>
+            </div>
+          </div>
+
+          <div class="cta-section">
+            <a href="https://premierleadmarketing.ai" class="cta-button" target="_blank">
+              Experience AI Marketing
+            </a>
+            <div class="website">premierleadmarketing.ai</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-section">
+      <h2 style="margin-bottom: 20px; color: #00d4ff;">Ready to Launch Your TikTok Campaign?</h2>
+      <p style="margin-bottom: 30px; color: #a0a0a0;">Download these ad creatives and start driving traffic to premierleadmarketing.ai</p>
+      <a href="#" class="download-button" onclick="downloadAd('variation-1')">Download Variation 1</a>
+      <a href="#" class="download-button" onclick="downloadAd('variation-2')">Download Variation 2</a>
+      <a href="#" class="download-button" onclick="downloadAd('variation-3')">Download Variation 3</a>
+    </div>
+
+    <div class="usage-tips">
+      <h3>TikTok Marketing Tips</h3>
+      
+      <div class="tip">
+        <strong>Best Posting Times:</strong> Post between 6-10 AM and 7-9 PM for maximum engagement. Test different times to find what works for your audience.
+      </div>
+      
+      <div class="tip">
+        <strong>Hashtag Strategy:</strong> Use 3-5 relevant hashtags like #LeadGeneration #AIMarketing #BusinessGrowth #DigitalMarketing #Entrepreneur
+      </div>
+      
+      <div class="tip">
+        <strong>Video Content:</strong> Create short videos (15-30 seconds) showing before/after results, client testimonials, or quick tips about lead generation.
+      </div>
+      
+      <div class="tip">
+        <strong>Call-to-Action:</strong> Always include a clear CTA directing viewers to visit premierleadmarketing.ai or comment for more info.
+      </div>
+      
+      <div class="tip">
+        <strong>A/B Testing:</strong> Run all three variations simultaneously to see which performs best with your target audience.
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function downloadAd(variation) {
+      // This would typically trigger a download of the ad creative
+      alert(`Downloading ${variation} ad creative. In a real implementation, this would generate and download the ad image/video.`);
+      
+      // Track the download
+      console.log(`Downloaded ${variation} for TikTok campaign`);
+      
+      // You could also redirect to a landing page or trigger actual download
+      // window.open('path-to-ad-creative.png', '_blank');
+    }
+
+    // Add some interactive effects
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctaButtons = document.querySelectorAll('.cta-button');
+      
+      ctaButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          console.log('TikTok Ad CTA clicked:', this.textContent);
+        });
+      });
+
+      // Animate elements on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.8s ease-out';
+          }
+        });
+      });
+
+      document.querySelectorAll('.ad-container').forEach(ad => {
+        observer.observe(ad);
+      });
+    });
+
+    // Add CSS for fade in animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>

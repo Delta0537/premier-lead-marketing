@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GHL Integration Dashboard - lovabel.dev</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .dashboard-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #D4AF37;
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .leads-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    
+    .leads-table th,
+    .leads-table td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .leads-table th {
+      background: rgba(255, 255, 255, 0.05);
+      font-weight: 500;
+      color: #D4AF37;
+    }
+    
+    .status-badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .status-new { background: #3b82f6; color: white; }
+    .status-contacted { background: #f59e0b; color: white; }
+    .status-qualified { background: #10b981; color: white; }
+    .status-closed { background: #6b7280; color: white; }
+    
+    .refresh-btn {
+      background: #D4AF37;
+      color: black;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      transition: all 0.2s;
+    }
+    
+    .refresh-btn:hover {
+      background: #E5C547;
+      transform: translateY(-1px);
+    }
+    
+    .chart-container {
+      position: relative;
+      height: 300px;
+      margin-top: 1rem;
+    }
+    
+    .activity-item {
+      padding: 1rem;
+      border-left: 3px solid #D4AF37;
+      margin-bottom: 1rem;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .activity-time {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <main class="wrap">
+    <header class="header">
+      <a href="/" class="logo">lovabel<span class="dot">.</span>dev</a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="supabase-demo.html">Supabase Demo</a>
+        <a href="#" class="active">GHL Dashboard</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>GHL Integration Dashboard</h1>
+      <p class="tagline">Real-time lead tracking and automation insights powered by n8n + Supabase</p>
+      <button class="refresh-btn" onclick="refreshDashboard()">🔄 Refresh Data</button>
+    </section>
+
+    <!-- Stats Overview -->
+    <div class="dashboard-grid">
+      <div class="dashboard-card">
+        <div class="stat-number" id="total-leads">-</div>
+        <div class="stat-label">Total Leads</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="stat-number" id="new-leads">-</div>
+        <div class="stat-label">New This Week</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="stat-number" id="conversion-rate">-</div>
+        <div class="stat-label">Conversion Rate</div>
+      </div>
+      <div class="dashboard-card">
+        <div class="stat-number" id="total-value">-</div>
+        <div class="stat-label">Pipeline Value</div>
+      </div>
+    </div>
+
+    <!-- Charts Section -->
+    <div class="dashboard-grid">
+      <div class="dashboard-card">
+        <h3>Leads Over Time</h3>
+        <div class="chart-container">
+          <canvas id="leadsChart"></canvas>
+        </div>
+      </div>
+      <div class="dashboard-card">
+        <h3>Lead Sources</h3>
+        <div class="chart-container">
+          <canvas id="sourcesChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Leads -->
+    <div class="dashboard-card">
+      <h3>Recent Leads</h3>
+      <div style="overflow-x: auto;">
+        <table class="leads-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Source</th>
+              <th>Status</th>
+              <th>Date Added</th>
+            </tr>
+          </thead>
+          <tbody id="leads-table-body">
+            <tr>
+              <td colspan="6" style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.5);">
+                Loading leads...
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recent Activity -->
+    <div class="dashboard-card">
+      <h3>Recent Activity</h3>
+      <div id="activity-feed">
+        <div style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.5);">
+          Loading activity...
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Supabase
+    const supabase = window.supabase.createClient(
+      'https://kixghhmqnnnkhiuminoe.supabase.co',
+      'sb_publishable_4LFleAeJ2VAiRhK-iBtRlw_atTDx'
+    );
+
+    let leadsChart, sourcesChart;
+
+    // Initialize dashboard
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeCharts();
+      refreshDashboard();
+      
+      // Auto-refresh every 30 seconds
+      setInterval(refreshDashboard, 30000);
+    });
+
+    async function refreshDashboard() {
+      try {
+        await Promise.all([
+          loadStats(),
+          loadRecentLeads(),
+          loadActivity(),
+          updateCharts()
+        ]);
+        console.log('Dashboard refreshed');
+      } catch (error) {
+        console.error('Dashboard refresh failed:', error);
+      }
+    }
+
+    async function loadStats() {
+      try {
+        // Total leads
+        const { count: totalLeads } = await supabase
+          .from('leads')
+          .select('*', { count: 'exact', head: true });
+
+        // New leads this week
+        const weekAgo = new Date();
+        weekAgo.setDate(weekAgo.getDate() - 7);
+        const { count: newLeads } = await supabase
+          .from('leads')
+          .select('*', { count: 'exact', head: true })
+          .gte('created_at', weekAgo.toISOString());
+
+        // Get opportunities for pipeline value
+        const { data: opportunities } = await supabase
+          .from('opportunities')
+          .select('value');
+
+        const totalValue = opportunities?.reduce((sum, opp) => sum + (opp.value || 0), 0) || 0;
+        const conversionRate = totalLeads > 0 ? ((opportunities?.length || 0) / totalLeads * 100).toFixed(1) : 0;
+
+        // Update DOM
+        document.getElementById('total-leads').textContent = totalLeads || 0;
+        document.getElementById('new-leads').textContent = newLeads || 0;
+        document.getElementById('conversion-rate').textContent = conversionRate + '%';
+        document.getElementById('total-value').textContent = '$' + (totalValue || 0).toLocaleString();
+      } catch (error) {
+        console.error('Error loading stats:', error);
+      }
+    }
+
+    async function loadRecentLeads() {
+      try {
+        const { data: leads } = await supabase
+          .from('leads')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(10);
+
+        const tbody = document.getElementById('leads-table-body');
+        
+        if (!leads || leads.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="6" style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.5);">No leads found</td></tr>';
+          return;
+        }
+
+        tbody.innerHTML = leads.map(lead => `
+          <tr>
+            <td>${lead.first_name || ''} ${lead.last_name || ''}</td>
+            <td>${lead.email || '-'}</td>
+            <td>${lead.phone || '-'}</td>
+            <td>${lead.source || 'GHL'}</td>
+            <td><span class="status-badge status-${lead.status}">${lead.status}</span></td>
+            <td>${new Date(lead.created_at).toLocaleDateString()}</td>
+          </tr>
+        `).join('');
+      } catch (error) {
+        console.error('Error loading leads:', error);
+      }
+    }
+
+    async function loadActivity() {
+      try {
+        const { data: activities } = await supabase
+          .from('activity_logs')
+          .select('*')
+          .order('created_at', { ascending: false })
+          .limit(10);
+
+        const feed = document.getElementById('activity-feed');
+        
+        if (!activities || activities.length === 0) {
+          feed.innerHTML = '<div style="text-align: center; padding: 2rem; color: rgba(255,255,255,0.5);">No recent activity</div>';
+          return;
+        }
+
+        feed.innerHTML = activities.map(activity => `
+          <div class="activity-item">
+            <div><strong>${activity.event_type.replace('_', ' ').toUpperCase()}</strong></div>
+            <div class="activity-time">${new Date(activity.created_at).toLocaleString()}</div>
+          </div>
+        `).join('');
+      } catch (error) {
+        console.error('Error loading activity:', error);
+      }
+    }
+
+    function initializeCharts() {
+      // Leads over time chart
+      const leadsCtx = document.getElementById('leadsChart').getContext('2d');
+      leadsChart = new Chart(leadsCtx, {
+        type: 'line',
+        data: {
+          labels: [],
+          datasets: [{
+            label: 'Leads',
+            data: [],
+            borderColor: '#D4AF37',
+            backgroundColor: 'rgba(212, 175, 55, 0.1)',
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+
+      // Sources pie chart
+      const sourcesCtx = document.getElementById('sourcesChart').getContext('2d');
+      sourcesChart = new Chart(sourcesCtx, {
+        type: 'doughnut',
+        data: {
+          labels: [],
+          datasets: [{
+            data: [],
+            backgroundColor: ['#D4AF37', '#3b82f6', '#10b981', '#f59e0b', '#ef4444']
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false
+        }
+      });
+    }
+
+    async function updateCharts() {
+      try {
+        // Update leads over time chart
+        const { data: dailyLeads } = await supabase
+          .from('leads')
+          .select('created_at')
+          .gte('created_at', new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString());
+
+        // Group by day
+        const dailyCounts = {};
+        dailyLeads?.forEach(lead => {
+          const date = new Date(lead.created_at).toDateString();
+          dailyCounts[date] = (dailyCounts[date] || 0) + 1;
+        });
+
+        const dates = Object.keys(dailyCounts).sort();
+        leadsChart.data.labels = dates;
+        leadsChart.data.datasets[0].data = dates.map(date => dailyCounts[date]);
+        leadsChart.update();
+
+        // Update sources chart
+        const { data: sourceData } = await supabase
+          .from('leads')
+          .select('source');
+
+        const sourceCounts = {};
+        sourceData?.forEach(lead => {
+          const source = lead.source || 'Unknown';
+          sourceCounts[source] = (sourceCounts[source] || 0) + 1;
+        });
+
+        sourcesChart.data.labels = Object.keys(sourceCounts);
+        sourcesChart.data.datasets[0].data = Object.values(sourceCounts);
+        sourcesChart.update();
+      } catch (error) {
+        console.error('Error updating charts:', error);
+      }
+    }
+  </script>
+</body>
+</html>

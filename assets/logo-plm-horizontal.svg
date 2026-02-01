@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="120" viewBox="0 0 600 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="plmGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#888888;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="infinityGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#00D4FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#0099FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0066CC;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Infinity Symbol (Left) -->
+  <g transform="translate(50, 60)">
+    <path d="M 0 0 C 0 -8, 6 -12, 12 -12 C 18 -12, 22 -8, 22 0 C 22 8, 18 12, 12 12 C 6 12, 0 8, 0 0 Z M 18 0 C 18 -8, 24 -12, 30 -12 C 36 -12, 40 -8, 40 0 C 40 8, 36 12, 30 12 C 24 12, 18 8, 18 0 Z" 
+          fill="url(#infinityGradient)" 
+          stroke="url(#infinityGradient)" 
+          stroke-width="1.5"/>
+  </g>
+  
+  <!-- PLM Text -->
+  <text x="130" y="75" font-family="Arial Black, sans-serif" font-size="50" font-weight="900" fill="url(#plmGradient)">
+    PLM
+  </text>
+  
+  <!-- Premier Lead Marketing -->
+  <text x="280" y="65" font-family="Arial, sans-serif" font-size="14" font-weight="300" letter-spacing="4" fill="#888888">
+    PREMIER <tspan fill="#E8E8E8" font-weight="700">LEAD</tspan> MARKETING
+  </text>
+  
+  <!-- Tagline -->
+  <text x="280" y="85" font-family="Arial, sans-serif" font-size="10" font-weight="300" letter-spacing="3" fill="#00D4FF">
+    STRATEGIC DIGITAL DOMINANCE
+  </text>
+</svg>

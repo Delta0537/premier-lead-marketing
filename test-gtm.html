@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GTM Test Page</title>
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WGDC6CQS');</script>
+    <!-- End Google Tag Manager -->
+</head>
+<body>
+    <h1>GTM Test Page</h1>
+    <p>Open the browser console (F12) and check for errors.</p>
+    <p>Type <code>dataLayer</code> in the console to see if GTM loaded.</p>
+    
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGDC6CQS"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <script>
+        // Test if dataLayer exists after page load
+        window.addEventListener('load', function() {
+            console.log('Page loaded. Checking dataLayer...');
+            if (window.dataLayer) {
+                console.log('✅ dataLayer exists:', window.dataLayer);
+            } else {
+                console.error('❌ dataLayer does NOT exist - GTM failed to load');
+            }
+        });
+    </script>
+</body>
+</html>

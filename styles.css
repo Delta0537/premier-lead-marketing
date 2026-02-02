@@ -1348,12 +1348,13 @@ a:hover {
 .founder-image-wrapper {
     position: sticky;
     top: 100px;
+    max-width: 350px; /* Reduced size */
 }
 
 .founder-image-container {
     position: relative;
     width: 100%;
-    padding-top: 100%;
+    padding-top: 75%; /* Changed from 100% to make it more rectangular */
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -1368,7 +1369,9 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top; /* Focus on the head/face area */
     display: none;
+    transition: opacity 0.3s ease;
 }
 
 .founder-image[src] {
@@ -1408,8 +1411,19 @@ a:hover {
 @media (max-width: 1023px) {
     .founder-image-wrapper {
         position: static;
-        max-width: 500px;
+        max-width: 300px; /* Reduced from 500px */
         margin: 0 auto;
+    }
+}
+
+/* Additional mobile optimization */
+@media (max-width: 767px) {
+    .founder-image-wrapper {
+        max-width: 250px; /* Even smaller on phones */
+    }
+    
+    .founder-image-container {
+        padding-top: 70%; /* Less square on mobile */
     }
 }
 

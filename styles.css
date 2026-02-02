@@ -1267,13 +1267,14 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-3xl);
-    align-items: start;
+    align-items: center; /* Changed from start to center to center the photo with text */
 }
 
 @media (min-width: 1024px) {
     .founder-layout {
         grid-template-columns: 1.2fr 1fr;
         gap: var(--spacing-3xl);
+        align-items: center; /* Center both text and image vertically */
     }
 }
 
@@ -1346,9 +1347,12 @@ a:hover {
 }
 
 .founder-image-wrapper {
-    position: sticky;
-    top: 100px;
-    max-width: 280px; /* Made 15% smaller than 350px = 297px, rounded to 280px for cleaner number */
+    position: static; /* Removed sticky positioning - no more "freeze pane" */
+    max-width: 280px;
+    margin: 0 auto; /* Center the image wrapper */
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
 }
 
 .founder-image-container {

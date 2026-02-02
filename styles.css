@@ -1369,14 +1369,16 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Changed from cover to contain - shows complete photo */
+    object-fit: cover; /* Back to cover for now to ensure it shows */
     object-position: center center;
-    display: none;
+    display: block; /* Force display */
+    opacity: 1; /* Force visibility */
     transition: opacity 0.3s ease;
 }
 
 .founder-image[src] {
     display: block;
+    opacity: 1;
 }
 
 .founder-image-placeholder {

@@ -1348,13 +1348,13 @@ a:hover {
 .founder-image-wrapper {
     position: sticky;
     top: 100px;
-    max-width: 350px; /* Reduced size */
+    max-width: 280px; /* Made 15% smaller than 350px = 297px, rounded to 280px for cleaner number */
 }
 
 .founder-image-container {
     position: relative;
     width: 100%;
-    padding-top: 85%; /* Increased from 75% to show more of the photo */
+    padding-top: 100%; /* Back to square to show complete photo without cropping */
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -1368,8 +1368,8 @@ a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center center; /* Changed to center center for full face */
+    object-fit: contain; /* Changed from cover to contain - shows complete photo */
+    object-position: center center;
     display: none;
     transition: opacity 0.3s ease;
 }
@@ -1411,7 +1411,7 @@ a:hover {
 @media (max-width: 1023px) {
     .founder-image-wrapper {
         position: static;
-        max-width: 300px; /* Reduced from 500px */
+        max-width: 240px; /* 15% smaller than 300px = 255px, rounded to 240px */
         margin: 0 auto;
     }
 }
@@ -1419,11 +1419,11 @@ a:hover {
 /* Additional mobile optimization */
 @media (max-width: 767px) {
     .founder-image-wrapper {
-        max-width: 250px; /* Even smaller on phones */
+        max-width: 200px; /* 15% smaller than 250px = 212px, rounded to 200px */
     }
     
     .founder-image-container {
-        padding-top: 80%; /* Adjusted for mobile to show full face */
+        padding-top: 100%; /* Keep square for complete photo */
     }
 }
 

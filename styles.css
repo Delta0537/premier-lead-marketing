@@ -1350,9 +1350,6 @@ a:hover {
     position: static; /* Removed sticky positioning - no more "freeze pane" */
     max-width: 280px;
     margin: 0 auto; /* Center the image wrapper */
-    display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
 }
 
 .founder-image-container {

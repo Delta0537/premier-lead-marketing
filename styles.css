@@ -1347,15 +1347,20 @@ a:hover {
 }
 
 .founder-image-wrapper {
-    position: static; /* Removed sticky positioning - no more "freeze pane" */
+    position: static;
+    width: 100%;
     max-width: 280px;
-    margin: 0 auto; /* Center the image wrapper */
+    min-height: 280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .founder-image-container {
     position: relative;
-    width: 100%;
-    padding-top: 100%; /* Back to square to show complete photo without cropping */
+    width: 280px;
+    height: 280px;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 16px;
@@ -1367,18 +1372,18 @@ a:hover {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Back to cover for now to ensure it shows */
-    object-position: center center;
-    display: block; /* Force display */
-    opacity: 1; /* Force visibility */
-    transition: opacity 0.3s ease;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center top;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .founder-image[src] {
-    display: block;
-    opacity: 1;
+    display: block !important;
+    opacity: 1 !important;
 }
 
 .founder-image-placeholder {
@@ -1414,19 +1419,27 @@ a:hover {
 @media (max-width: 1023px) {
     .founder-image-wrapper {
         position: static;
-        max-width: 240px; /* 15% smaller than 300px = 255px, rounded to 240px */
+        max-width: 240px;
+        min-height: 240px;
         margin: 0 auto;
+    }
+
+    .founder-image-container {
+        width: 240px;
+        height: 240px;
     }
 }
 
 /* Additional mobile optimization */
 @media (max-width: 767px) {
     .founder-image-wrapper {
-        max-width: 200px; /* 15% smaller than 250px = 212px, rounded to 200px */
+        max-width: 200px;
+        min-height: 200px;
     }
-    
+
     .founder-image-container {
-        padding-top: 100%; /* Keep square for complete photo */
+        width: 200px;
+        height: 200px;
     }
 }
 

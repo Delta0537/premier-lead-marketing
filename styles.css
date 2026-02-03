@@ -1350,11 +1350,7 @@ a:hover {
     position: static;
     width: 100%;
     max-width: 280px;
-    min-height: 280px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .founder-image-container {
@@ -1366,6 +1362,7 @@ a:hover {
     border-radius: 16px;
     overflow: hidden;
     box-shadow: var(--shadow-xl);
+    margin: 0 auto;
 }
 
 .founder-image {
@@ -1418,15 +1415,14 @@ a:hover {
 
 @media (max-width: 1023px) {
     .founder-image-wrapper {
-        position: static;
         max-width: 240px;
-        min-height: 240px;
         margin: 0 auto;
     }
 
     .founder-image-container {
         width: 240px;
         height: 240px;
+        margin: 0 auto;
     }
 }
 
@@ -1434,12 +1430,13 @@ a:hover {
 @media (max-width: 767px) {
     .founder-image-wrapper {
         max-width: 200px;
-        min-height: 200px;
+        margin: 0 auto;
     }
 
     .founder-image-container {
         width: 200px;
         height: 200px;
+        margin: 0 auto;
     }
 }
 
